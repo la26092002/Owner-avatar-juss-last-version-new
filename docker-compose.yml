@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     build: .
@@ -7,11 +5,14 @@ services:
       - "8080:80"
     volumes:
       - .:/var/www/html
+      - /var/www/html/vendor
     depends_on:
       - db
+    environment:
+      STRIPE_SECRET_KEY: "sK_Live_51RJdg0GVRhUKYSLZN2Ij5TeYu9iGEFpzvIIE6IEjnag6G15zJM0Xm5C00CJpiSgRvano1BaoPgSCrW70SI1VZ0j80yWFIbPs0"
 
   db:
-    image: mysql:5.7
+    image: mysql:5.7.43  # Use exact version
     container_name: ecommerce_db
     restart: always
     environment:
@@ -21,10 +22,10 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-      - ./DATABASE\ FILE/ecommerceweb.sql:/docker-entrypoint-initdb.d/ecommerceweb.sql
+      - ./DATABASE FILE/ecommerceweb.sql:/docker-entrypoint-initdb.d/ecommerceweb.sql
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin/phpmyadmin:5.2.1  # Use exact version
     restart: always
     ports:
       - "8081:80"

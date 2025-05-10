@@ -567,9 +567,12 @@ if(!isset($_SESSION['cart_p_id'])) {
                             }
                         }                        
                         ?>
+						
                         <tr>
                             <td colspan="7" class="total-text"><?php echo LANG_VALUE_84; ?></td>
-                            <td class="total-amount"><?php echo LANG_VALUE_1; ?><?php echo $shipping_cost; ?></td>
+                            <td class="total-amount"><?php echo LANG_VALUE_1; ?><?php echo $shipping_cost;
+							//ship
+							?></td>
                         </tr>
                         <tr>
                             <th colspan="7" class="total-text"><?php echo LANG_VALUE_82; ?></th>
@@ -619,8 +622,16 @@ if(!isset($_SESSION['cart_p_id'])) {
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
+					<button type="button" class="btn btn-success mt-2" onclick="continuePayment()">
+    Continuer le paiement
+</button>
                 <form action="payment/bank/init.php" method="post" id="bank_form">
                 <button type="button" class="btn btn-primary" onclick="selectPaymentMethod('Bank Deposit')"><?php echo 'CONFIRM ORDER'; ?></button>
+
+				
+				
+
+
                 <!-- You can add more buttons here for other payment methods -->
                 </form>
 				<form>
@@ -659,6 +670,13 @@ if(!isset($_SESSION['cart_p_id'])) {
 </div>
 
 <script>
+
+	function continuePayment() {
+        window.location.href = 'payment.php';
+    }
+
+
+
     function selectPaymentMethod(method) {
         if (method === 'Bank Deposit') {
             document.getElementById('bank_form').style.display = 'block';

@@ -6,21 +6,21 @@ ini_set('error_reporting', E_ALL);
 date_default_timezone_set('Africa/Algiers');
 
 // // Host Name
-// $dbhost = 'localhost';
+ $dbhost = 'localhost';
 
 // // Database Name
-// $dbname = 'ecommerceweb';
+ $dbname = 'ecommerceweb';
 
 // // Database Username
-// $dbuser = 'root';
+ $dbuser = 'root';
 
 // // Database Password
-// $dbpass = '';
+ $dbpass = 'rootroot';
 
-$dbhost = 'db'; // service name from docker-compose
-$dbname = 'ecommerceweb';
-$dbuser = 'root';
-$dbpass = 'root';
+// $dbhost = 'db'; // service name from docker-compose
+// $dbname = 'ecommerceweb';
+// $dbuser = 'root';
+// $dbpass = 'root';
 
 // Defining base url
 define("BASE_URL", "");
