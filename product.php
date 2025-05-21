@@ -100,6 +100,296 @@ foreach ($result as $row) {
 	<link rel="stylesheet" href="assets/css/select2.min.css">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	
+	
+	
+	
+	<style>
+	
+	
+
+.menu-mobile{
+    background-color: black;
+    
+}
+
+.pl_0 {
+    background-color: black;
+    
+}
+
+
+
+
+
+/* Force override for Add to Cart button */
+.btn-cart1 input[type="submit"],
+.btn-cart1 input[type="submit"]:hover,
+.btn-cart1 input[type="submit"]:focus {
+  background-color: #FFC0CB !important;
+  color: #000 !important;
+  border: none !important;
+}
+
+.btn-cart1 input[type="submit"]:hover {
+  background-color: #ff9aae !important;
+}
+
+/* styles.css */
+body {
+  font-style: italic;
+}
+
+
+
+/* Navigation Styles */
+.nav {
+    background: #fff; /* Set your desired background color */
+    width: 100%;
+}
+
+.nav .container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.nav .row {
+    margin: 0;
+}
+
+.nav .col-md-12.pl_0.pr_0 {
+    padding: 0;
+}
+
+.nav .menu-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #fff; /* Match nav background */
+}
+
+.nav .menu {
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Style de la barre noire originale (inchangé) */
+.top {
+  background-color: #000;
+  width: 100%;
+  overflow: hidden;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/* Style de la nouvelle barre rose */
+.top-rose {
+  background-color: #FFC0CB; /* Rose */
+  width: 100%;
+  overflow: hidden;
+  height: 50px; /* Plus grande */
+  display: flex;
+  align-items: center;
+}
+
+/* Animation et texte pour la barre noire (originale) */
+.full-width-marquee {
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  color: white; /* Texte blanc */
+  font-size: 18px;
+  font-weight: bold; /* Gras */
+  font-style: italic; /* Italique */
+  line-height: 1.3;
+  animation: marquee 20s linear infinite;
+}
+
+/* Style spécifique pour le texte de la barre rose */
+.marquee-text-rose {
+  display: inline-block;
+  padding-left: 100%;
+  color: #000; /* Texte noir */
+  font-size: 22px; /* Plus grand */
+  font-weight: bold;
+  font-style: italic; /* Italique */
+  line-height: 1.3;
+  animation: marquee 20s linear infinite; /* Même animation */
+}
+
+/* Animation commune (réutilisée) */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+
+
+
+
+
+////////image  part 
+
+.spcl_section {
+  width: 100%;
+  padding: 60px 0;
+  background-color: #f8f9fa; /* ou une autre couleur de fond */
+}
+
+.img-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .detail-box {
+    text-align: center;
+  }
+
+  .col-md-6 {
+    padding: 20px;
+  }
+
+  .img-box {
+    margin-top: 20px;
+  }
+}
+
+
+
+
+
+
+.option-group label:hover {
+    border-color: #FFC0CB;
+    transition: all 0.3s ease;
+}
+
+
+
+.btn-cart1 input[type="submit"] {
+    background-color: #FFC0CB;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-cart1 input[type="submit"]:hover {
+    background-color: #ff9aae; /* Slightly darker pink on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Size and Color Selection Options */
+.option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.option-group input[type="radio"] {
+    display: none;
+}
+
+/* Size Labels (unchanged) */
+.option-group label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    border: 2px solid #FFC0CB;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 12px;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #333; /* Default text color */
+}
+
+/* Color Labels - White by default with colored border */
+.option-group input[type="radio"][name="color_id"] + label {
+    background-color: white !important;
+    border: 2px solid var(--color-value); /* Will show the color as border */
+    color: #333; /* Dark text for visibility */
+    position: relative;
+}
+
+/* Show color as a small circle inside the white button */
+.option-group input[type="radio"][name="color_id"] + label::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-value);
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Selected State - Pink background */
+.option-group input[type="radio"]:checked + label {
+    background-color: #FFC0CB !important;
+    border-color: #FFC0CB !important;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(255, 192, 203, 0.7);
+}
+
+/* Hover State */
+.option-group label:hover {
+    border-color: #ff9aae;
+    transform: scale(1.03);
+}
+</style>
+
+
+
 
 	<?php
 
@@ -242,104 +532,83 @@ foreach ($result as $row) {
 </div>-->
 
 <!-- top bar -->
+
+
+
+
 <div class="top">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-12">
-				<div class="left">
-					<ul><?php if (!empty ($contact_phone)) {?>
-						<li><i class="fa fa-phone"></i> <?php echo $contact_phone; ?></li>
-						<?php }?>
-						<?php if (!empty ($contact_email)) {?>
-						<li><i class="fa fa-envelope-o"></i> <?php echo $contact_email; ?></li>
-					<?php }?>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md-6 col-sm-6 col-xs-12">
-				<div class="right">
-					<ul>
-						<?php
-						$statement = $pdo->prepare("SELECT * FROM tbl_social");
-						$statement->execute();
-						$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-						foreach ($result as $row) {
-							?>
-							<?php if($row['social_url'] != ''): ?>
-							<li><a href="<?php echo $row['social_url']; ?>"><i class="<?php echo $row['social_icon']; ?>"></i></a></li>
-							<?php endif; ?>
-							<?php
-						}
-						?>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="full-width-marquee">
+          <div class="marquee-text">
+            Obtenez une expérience complète qui allie sécurité, esthétique et innovation.                             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
 <div class="header">
-	<div class="container">
-		<div class="row inner">
-			<div class="col-md-4 logo">
-				<a href="index.php"><img src="assets/uploads/<?php echo $logo; ?>" alt="logo image"></a>
-			</div>
-			
-			<div class="col-md-5 right">
-				<ul>
-					
-					<?php
-					if(isset($_SESSION['customer'])) {
-						?>
-						<li><i class="fa fa-user"></i> <?php echo LANG_VALUE_13; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
-						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li>
-						<?php
-					} else {
-						?>
-						<li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo LANG_VALUE_9; ?></a></li>
-						<li><a href="registration.php"><i class="fa fa-user-plus"></i> <?php echo LANG_VALUE_15; ?></a></li>
-						<?php	
-					}
-					?>
+    <div class="container">
+        <div class="row inner">
+            <!-- Colonne vide à gauche pour pousser le logo au centre -->
+            <div class="col-md-4"></div>
+            
+            <!-- Logo centré -->
+            <div class="col-md-4 logo text-center">
+                <a href="index.php"><img src="assets/uploads/<?php echo $logo; ?>" alt="logo image"></a>
+            </div>
+            
+            <!-- Éléments alignés à droite -->
+            <div class="col-md-4 right text-right">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <?php
+                    if(isset($_SESSION['customer'])) {
+                        ?>
+                        <li style="display: inline-block; margin-left: 15px; color: #000000;"><i class="fa fa-user" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_13; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #000000; text-decoration: none;"><i class="fa fa-home" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_89; ?></a></li>
+                        <?php
+                    } else {
+                        ?>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="login.php" style="color: #000000; text-decoration: none;"><i class="fa fa-sign-in" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_9; ?></a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="registration.php" style="color: #000000; text-decoration: none;"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_15; ?></a></li>
+                        <?php	
+                    }
+                    ?>
 
-					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
-					if(isset($_SESSION['cart_p_id'])) {
-						$table_total_price = 0;
-						$i=0;
-	                    foreach($_SESSION['cart_p_qty'] as $key => $value) 
-	                    {
-	                        $i++;
-	                        $arr_cart_p_qty[$i] = $value;
-	                    }                    $i=0;
-	                    foreach($_SESSION['cart_p_current_price'] as $key => $value) 
-	                    {
-	                        $i++;
-	                        $arr_cart_p_current_price[$i] = $value;
-	                    }
-	                    for($i=1;$i<=count($arr_cart_p_qty);$i++) {
-	                    	$row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
-	                        $table_total_price = $table_total_price + $row_total_price;
-	                    }
-						echo $table_total_price;
-					} else {
-						echo '0.00';
-					}
-					?>)</a></li>
-				</ul>
-			</div>
-			<div class="col-md-3 search-area">
-				<form class="navbar-form navbar-left" role="search" action="search-result.php" method="get">
-					<?php $csrf->echoInputField(); ?>
-					<div class="form-group">
-						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text">
-					</div>
-					<button type="submit" class="btn "><?php echo LANG_VALUE_3; ?></button>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <li style="display: inline-block; margin-left: 15px;"><a href="cart.php" style="color: #000000; text-decoration: none;"><i class="fa fa-shopping-cart" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
+                    if(isset($_SESSION['cart_p_id'])) {
+                        $table_total_price = 0;
+                        $i=0;
+                        foreach($_SESSION['cart_p_qty'] as $key => $value) 
+                        {
+                            $i++;
+                            $arr_cart_p_qty[$i] = $value;
+                        }                    $i=0;
+                        foreach($_SESSION['cart_p_current_price'] as $key => $value) 
+                        {
+                            $i++;
+                            $arr_cart_p_current_price[$i] = $value;
+                        }
+                        for($i=1;$i<=count($arr_cart_p_qty);$i++) {
+                            $row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
+                            $table_total_price = $table_total_price + $row_total_price;
+                        }
+                        echo $table_total_price;
+                    } else {
+                        echo '0.00';
+                    }
+                    ?>)</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 <div class="nav">
 	<div class="container">
@@ -828,49 +1097,164 @@ if($success_message1 != '') {
 							</div>
                             <form action="" method="post">
                             <div class="p-quantity">
-                                <div class="row">
-                                    <?php if(isset($size)): ?>
-                                    <div class="col-md-12 mb_20">
-                                        <?php echo LANG_VALUE_52; ?> <br>
-                                        <select name="size_id" class="form-control select2" style="width:auto;">
-                                            <?php
-                                            $statement = $pdo->prepare("SELECT * FROM tbl_size");
-                                            $statement->execute();
-                                            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                            foreach ($result as $row) {
-                                                if(in_array($row['size_id'],$size)) {
-                                                    ?>
-                                                    <option value="<?php echo $row['size_id']; ?>"><?php echo $row['size_name']; ?></option>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <?php endif; ?>
+<!-- ------------------------------------------- -->
+<style>
+    .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
-                                    <?php if(isset($color)): ?>
-                                    <div class="col-md-12">
-                                        <?php echo LANG_VALUE_53; ?> <br>
-                                        <select name="color_id" class="form-control select2" style="width:auto;">
-                                            <?php
-                                            $statement = $pdo->prepare("SELECT * FROM tbl_color");
-                                            $statement->execute();
-                                            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                            foreach ($result as $row) {
-                                                if(in_array($row['color_id'],$color)) {
-                                                    ?>
-                                                    <option value="<?php echo $row['color_id']; ?>"><?php echo $row['color_name']; ?></option>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <?php endif; ?>
+.option-group input[type="radio"] {
+    display: none;
+}
 
-                                </div>
-                                
+.option-group label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 12px;
+    text-transform: capitalize;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.option-group input[type="radio"]:checked + label {
+    background-color: #ff6600;
+    border-color: #ff6600;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Size and Color Selection Options */
+.option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.option-group input[type="radio"] {
+    display: none;
+}
+
+/* Size Labels */
+.option-group label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    border: 2px solid #FFC0CB;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 12px;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+/* Color Labels - Make them circular color swatches */
+.option-group input[type="radio"][name="color_id"] + label {
+    background-color: var(--color-value); /* Will be set inline */
+    border: 2px solid #FFC0CB;
+    color: white;
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+/* Selected State */
+.option-group input[type="radio"]:checked + label {
+    background-color: #FFC0CB;
+    border-color: #FFC0CB;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(255, 192, 203, 0.7);
+}
+
+/* Hover State */
+.option-group label:hover {
+    border-color: #ff9aae;
+    transform: scale(1.03);
+}
+
+</style>
+
+<div class="row">
+    <?php if (isset($size)): ?>
+        <div class="col-md-12 mb_20">
+            <strong><?php echo LANG_VALUE_52; ?></strong><br>
+            <div class="option-group">
+                <?php
+                $statement = $pdo->prepare("SELECT * FROM tbl_size");
+                $statement->execute();
+                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($result as $row) {
+                    if (in_array($row['size_id'], $size)) {
+                        ?>
+                        <input type="radio" id="size_<?php echo $row['size_id']; ?>" name="size_id" value="<?php echo $row['size_id']; ?>">
+                        <label for="size_<?php echo $row['size_id']; ?>"><?php echo $row['size_name']; ?></label>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($color)): ?>
+        <div class="col-md-12 mb_20">
+            <strong><?php echo LANG_VALUE_53; ?></strong><br>
+            <div class="option-group">
+                <?php
+                $statement = $pdo->prepare("SELECT * FROM tbl_color");
+                $statement->execute();
+                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($result as $row) {
+                    if (in_array($row['color_id'], $color)) {
+                        ?>
+                        <input type="radio" id="color_<?php echo $row['color_id']; ?>" name="color_id" value="<?php echo $row['color_id']; ?>">
+                        <label for="color_<?php echo $row['color_id']; ?>"><?php echo $row['color_name']; ?></label>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+            
+        </div>
+    <?php endif; ?>
+</div>
+
+<!-- ----------------------------------------- -->
                             </div>
 							<div class="p-price">
                                 <span style="font-size:14px;"><?php echo LANG_VALUE_54; ?></span><br>

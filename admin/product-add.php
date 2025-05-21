@@ -233,13 +233,13 @@ if (!empty($_POST['color'])) {
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Ancien Prix <br><span style="font-size:10px;font-weight:normal;">(In DZ)</span></label>
+							<label for="" class="col-sm-3 control-label">Ancien Prix <br><span style="font-size:10px;font-weight:normal;">(EUR)</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_old_price" class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Prix Actuel <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In DZ)</span></label>
+							<label for="" class="col-sm-3 control-label">Prix Actuel <span>*</span><br><span style="font-size:10px;font-weight:normal;">(EUR)</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_current_price" class="form-control">
 							</div>

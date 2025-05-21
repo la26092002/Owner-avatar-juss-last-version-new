@@ -18,18 +18,76 @@ foreach ($result as $row)
 
 <?php if (isset($newsletter_on_off) && $newsletter_on_off == 1): ?>
 
-<div  class="dawn">
-<img src="assets/uploads/lg-rb.png">
-<img src="assets/uploads/lg-rb.png">
-<img src="assets/uploads/lg-rb.png">
-<img src="assets/uploads/lg-rb.png">
-<img src="assets/uploads/lg-rb.png">
-<img src="assets/uploads/lg-rb.png">
-</div>
 
+
+<style>
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+.dawn {
+  height: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+}
+
+
+
+
+ .home-newsletter {
+        background-color: #ffeef3;
+        padding: 20px 0;
+    }
+    .home-newsletter .single {
+        background-color: #ffeef3;
+        color: #000000;
+    }
+    .home-newsletter h2 {
+        color: #000000;
+    }
+    .home-newsletter .form-control {
+        background-color: #ffeef3;
+        color: #000000;
+        border: 1px solid #000000;
+    }
+    .home-newsletter .form-control::placeholder {
+        color: #000000;
+        opacity: 0.7;
+    }
+    .home-newsletter .btn-theme {
+        background-color: #000000;
+        color: #FFC0CB;
+        border: 1px solid #000000;
+    }
+</style>
+
+   
 <section class="home-newsletter">
 	<div class="container">
 		<div class="row">
+		    
+		 
 			<div class="col-md-6 col-md-offset-3">
 				<div class="single">
 					<?php
@@ -121,26 +179,242 @@ Ce lien ne sera actif que pendant 24 heures.
 				</div>
 				</form>
 			</div>
+            <!-- ---------------- -->
+
+<!-- ---------------- -->
 		</div>
+        
 	</div>
+    
 </section>
 <?php endif; ?>
 
+<style>
+/* الحاوية العامة للأيقونات */
+.right .icons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  justify-content: center; /* يمكنك تغييره إلى center أو flex-end */
+  margin: 50px;
+}
+
+/* قائمة الأيقونات (السوشيال + الدفع) */
+.footer-icons,
+.payment-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* أيقونات السوشيال */
+.footer-icons li a {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  transition: 0.3s;
+  text-decoration: none;
+  border:1px solid black; 
+}
+
+.footer-icons li a:hover {
+  background-color: #ffeef3;
+}
+
+/* شعارات الدفع */
+.payment-icons li img {
+  height: 30px;
+  display: block;
+}
+
+.divider {
+  width: 1px;
+  height: 36px;
+  background-color: #333;
+}
+</style>
 
 
 
-<div class="footer-bottom">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 copyright">
-				<?php if (!empty ($footer_copyright)) {?>
-				
-				<?php echo $footer_copyright; ?>
-				<?php }?>
-			</div>
-		</div>
-	</div>
+<div class="footer-bottom white-text">
+    <div class="container">
+        <div class="row align-items-center"> <!-- Ajout de align-items-center ici -->
+            <!-- 1ère partie: Siège social -->
+<!-- ------------------------------------------------- -->
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="right">
+    <div class="icons-wrapper">
+      <!-- الشبكات الاجتماعية -->
+      <ul class="footer-icons">
+        <?php
+        $statement = $pdo->prepare("SELECT * FROM tbl_social");
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($result as $row) {
+            if($row['social_url'] != '') {
+                echo '<li><a href="' . $row['social_url'] . '"><i class="' . $row['social_icon'] . '"></i></a></li>';
+            }
+        }
+        ?>
+      </ul>
+      <div class="divider"></div>
+      <!-- وسائل الدفع -->
+      <ul class="payment-icons">
+        <li><a href=""><img src="https://img.icons8.com/color/48/visa.png" alt="Visa"></a></li>
+        <li><a href=""><img src="https://img.icons8.com/color/48/mastercard-logo.png" alt="Mastercard"></a></li>
+        <li><a href=""><img src="https://img.icons8.com/color/48/paypal.png" alt="PayPal"></a></li>
+        <li><a href=""><img src="https://img.icons8.com/color/48/apple-pay.png" alt="Apple Pay"></a></li>
+        <li><a href=""><img src="https://img.icons8.com/color/48/google-pay.png" alt="Google Pay"></a></li>
+        <li><a href=""><img src="https://img.icons8.com/color/48/amex.png" alt="American Express"></a></li>
+      </ul>
+    </div>
+  </div>
 </div>
+<!-- ------------------------------------------------- -->
+
+            <div class="col-md-3">
+                <h4 class="text-white">SIÈGE SOCIAL</h4>
+                <p class="text-white">
+                    12 square bulsunce<br>
+                    Marseille 13001<br>
+                    Phone:<br>
+                    +33661042145<br>
+                    Email:<br>
+                    <a href="mailto:JUUSS@gmail.com" class="text-white">JUUSS@gmail.com</a>
+                </p>
+            </div>
+            
+            <!-- 2ème partie: Aide & Information -->
+            <div class="col-md-3">
+                <h4 class="text-white">AIDE & INFORMATION</h4>
+                <div class="footer-links">
+                    <a href="/faq.php" class="text-white">FAQ</a>
+                    <a href="/contact.php" class="text-white">Contactez-nous</a>
+                    <a href="/about.php" class="text-white">Notre histoire</a><br>
+                </div>
+            </div>
+            
+            <!-- 3ème partie: À propos -->
+            <div class="col-md-3">
+                <h4 class="text-white">LE PAYS</h4>
+                <div class="france-info">
+                    <div class="mb-2">
+                       <img src="./assets/img/french-flag.svg" alt="Drapeau Français" style="width:25px; height:auto;">
+                        <span>Site français</span>
+                    </div>
+                    <div class="mb-2">
+                         Devise : EUR (€)
+                    </div>
+                    <div class="mb-2">
+                        Langue : Français
+                    </div>
+                    <div>
+                       Livraison : Métropole
+                    </div>
+                </div>
+            </div>
+            <!-- 4ème partie: LE PAYS -->
+           <div class="col-md-3">
+    <h4 class="text-white">LE PAYS</h4>
+    <div class="footer-links">
+        <form method="post" action="">
+            <label for="country" style="color: #333;">VOUS ÊTES EN :</label>
+            <select name="country" id="country" class="form-control" style="margin-top: 2px;">
+                <option value="">Sélectionner un pays</option>
+                <?php
+                try {
+                    $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
+                    $statement->execute();
+                    $countries = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($countries as $row) {
+                        echo '<option value="' . htmlspecialchars($row['country_id']) . '">' . htmlspecialchars($row['country_name']) . '</option>';
+                    }
+                } catch (PDOException $e) {
+                    echo '<option value="">Erreur</option>';
+                }
+                ?>
+            </select>
+        </form>
+    </div>
+</div>
+
+            
+              <!-- 4ème partie: Copyright -->
+            <div class="col-md-12 copyright mt-5">
+                <?php if (!empty ($footer_copyright)) {?>
+                <p class="text-white"><?php echo $footer_copyright; ?></p>
+                <?php }?>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<style>
+    .white-text,
+    .white-text a,
+    .white-text h4,
+    .white-text p {
+        color: #333 !important;
+    }
+    
+    .text-white {
+        color: #333 !important;
+    }
+    
+    .footer-bottom {
+        background-color: #fff;
+        padding: 30px 0;
+    }
+    
+    .footer-links a {
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Ajout pour garantir la hauteur égale des colonnes */
+    .row.align-items-center {
+        min-height: 100%;
+    }
+    
+    .copyright {
+        height: 100%;
+    }
+</style>
+<div  class="dawn">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+</div>
+
+<div class="header">
+    <div class="container">
+        <div class="row inner">
+            
+        </div>
+    </div>
+</div>
+
 
 
 <a href="#" class="scrollup">

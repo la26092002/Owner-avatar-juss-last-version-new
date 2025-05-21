@@ -100,6 +100,160 @@ foreach ($result as $row) {
 	<link rel="stylesheet" href="assets/css/select2.min.css">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	
+	
+	
+	
+	<style>
+
+
+/* styles.css */
+body {
+  font-style: italic;
+}
+
+
+
+/* Navigation Styles */
+.nav {
+    background: #fff; /* Set your desired background color */
+    width: 100%;
+}
+
+.nav .container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.nav .row {
+    margin: 0;
+}
+
+.nav .col-md-12.pl_0.pr_0 {
+    padding: 0;
+}
+
+.nav .menu-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #fff; /* Match nav background */
+}
+
+.nav .menu {
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Style de la barre noire originale (inchangé) */
+.top {
+  background-color: #000;
+  width: 100%;
+  overflow: hidden;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/* Style de la nouvelle barre rose */
+.top-rose {
+  background-color: #FFC0CB; /* Rose */
+  width: 100%;
+  overflow: hidden;
+  height: 50px; /* Plus grande */
+  display: flex;
+  align-items: center;
+}
+
+/* Animation et texte pour la barre noire (originale) */
+.full-width-marquee {
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  color: white; /* Texte blanc */
+  font-size: 18px;
+  font-weight: bold; /* Gras */
+  font-style: italic; /* Italique */
+  line-height: 1.3;
+  animation: marquee 20s linear infinite;
+}
+
+/* Style spécifique pour le texte de la barre rose */
+.marquee-text-rose {
+  display: inline-block;
+  padding-left: 100%;
+  color: #000; /* Texte noir */
+  font-size: 22px; /* Plus grand */
+  font-weight: bold;
+  font-style: italic; /* Italique */
+  line-height: 1.3;
+  animation: marquee 20s linear infinite; /* Même animation */
+}
+
+/* Animation commune (réutilisée) */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+
+
+
+
+
+////////image  part 
+
+.spcl_section {
+  width: 100%;
+  padding: 60px 0;
+  background-color: #f8f9fa; /* ou une autre couleur de fond */
+}
+
+.img-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .detail-box {
+    text-align: center;
+  }
+
+  .col-md-6 {
+    padding: 20px;
+  }
+
+  .img-box {
+    margin-top: 20px;
+  }
+}
+
+
+</style>
+
+
+
 
 	<?php
 
@@ -625,18 +779,7 @@ if(!isset($_SESSION['cart_p_id'])) {
 					<button type="button" class="btn btn-success mt-2" onclick="continuePayment()">
     Continuer le paiement
 </button>
-                <form action="payment/bank/init.php" method="post" id="bank_form">
-                <button type="button" class="btn btn-primary" onclick="selectPaymentMethod('Bank Deposit')"><?php echo 'CONFIRM ORDER'; ?></button>
-
-				
-				
-
-
-                <!-- You can add more buttons here for other payment methods -->
-                </form>
-				<form>
-				<a href="customer-profile-update.php" class="btn btn-danger w-100"><?php echo LANG_VALUE_117; ?></a>
-                </form>
+                
             </div>
         </div>			
     </div>			
@@ -672,7 +815,19 @@ if(!isset($_SESSION['cart_p_id'])) {
 <script>
 
 	function continuePayment() {
-        window.location.href = 'payment.php';
+        // Create a hidden form to submit the shipping cost
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = 'payment.php';
+        
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'shipping_cost';
+        input.value = '<?php echo $shipping_cost; ?>';
+        
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
     }
 
 

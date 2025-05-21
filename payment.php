@@ -6,9 +6,14 @@ error_reporting(E_ALL);
 // Start session to access cart data
 session_start();
 
+if(isset($_POST['shipping_cost'])) {
+    $_SESSION['shipping_cost'] = $_POST['shipping_cost'];
+   $shipping_cost = $_SESSION['shipping_cost'];
+}
+
 require __DIR__ . '/vendor/autoload.php';
 
-$stripe_secret_key = "sk_test_51RMg4JQlIxdNlh3Cri080iJtqtv0dklLQX9cNCsMd95exhsSr3Tjm4sCVyYjm03x9bwBqO1EHgsn7SgydISxuwfa00xZyFhmge";
+$stripe_secret_key = "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";
 
 if (!$stripe_secret_key) {
     die("Stripe secret key is missing.");
@@ -55,12 +60,12 @@ if(isset($_SESSION['cart_p_id'])) {
     }
     
     // Add shipping cost as a separate line item if needed
-    $shipping_cost = 1000; // Example: $10.00 in cents
+    //$shipping_cost = 1000; // Example: $10.00 in cents
     $line_items[] = [
         "quantity" => 1,
         "price_data" => [
             "currency" => "usd",
-            "unit_amount" => $shipping_cost,
+            "unit_amount" => $shipping_cost * 100,
             "product_data" => [
                 "name" => "Shipping Cost"
             ]
@@ -73,7 +78,7 @@ if(isset($_SESSION['cart_p_id'])) {
 try {
     $checkout_session = \Stripe\Checkout\Session::create([
         "mode" => "payment",
-        "success_url" => "http://localhost/success.php",
+        "success_url" => "http://localhost/customer-profile-update.php",
         "cancel_url" => "http://localhost/checkout.php",
         "locale" => "auto",
         "line_items" => $line_items

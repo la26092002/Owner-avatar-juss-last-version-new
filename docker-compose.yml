@@ -1,37 +1,43 @@
+version: '3.8'
+
 services:
-  web:
+  php:
     build: .
+    container_name: php_app
     ports:
-      - "8080:80"
+      - "8000:80"
     volumes:
       - .:/var/www/html
-      - /var/www/html/vendor
     depends_on:
       - db
-    environment:
-      STRIPE_SECRET_KEY: "sK_Live_51RJdg0GVRhUKYSLZN2Ij5TeYu9iGEFpzvIIE6IEjnag6G15zJM0Xm5C00CJpiSgRvano1BaoPgSCrW70SI1VZ0j80yWFIbPs0"
 
   db:
-    image: mysql:5.7.43  # Use exact version
-    container_name: ecommerce_db
+    image: mysql:5.7
+    container_name: mysql_db
     restart: always
     environment:
-      MYSQL_DATABASE: ecommerceweb
       MYSQL_ROOT_PASSWORD: root
-    ports:
-      - "3306:3306"
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: larbi
+      MYSQL_PASSWORD: larbi123
+    command: [
+      "--character-set-server=utf8mb4",
+      "--collation-server=utf8mb4_unicode_ci"
+    ]
     volumes:
       - db_data:/var/lib/mysql
-      - ./DATABASE FILE/ecommerceweb.sql:/docker-entrypoint-initdb.d/ecommerceweb.sql
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:5.2.1  # Use exact version
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
     restart: always
     ports:
-      - "8081:80"
+      - "8080:80"
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: root
+      PMA_PORT: 3306
+      PMA_USER: larbi
+      PMA_PASSWORD: larbi123
     depends_on:
       - db
 

@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 14px;
 }
 
@@ -15,8 +15,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial", sans-serif;
 }
+
+
+
+
 
 a {
   text-decoration: none;
@@ -79,7 +83,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: #000000;
 }
 
 .dawn img {
@@ -173,7 +177,6 @@ a:hover {
   justify-content: center
 } */
 
-
 .header::before {
   content: "";
   position: absolute;
@@ -182,9 +185,9 @@ a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(2px);
   z-index: 0;
 }
+
 
 .header .inner {
   position: relative;
@@ -205,13 +208,27 @@ a:hover {
   background-size: cover;         /* يجعل الصورة تغطي كل المساحة */
   background-position: center;    /* يوسط الصورة */
   background-repeat: no-repeat;   /* يمنع التكرار */
+  padding: 0; /* تأكد من عدم وجود padding */
 
 } 
 
 /* .header .inner {
   width: 100%;
 } */
+.header .logo {
+  display: flex;
+  align-items: flex-start; /* تجعل المحتوى يصعد لأعلى */
+  justify-content: flex-start; /* تجعل المحتوى يصطف لليسار */
+}
 
+.header .logo img {
+  height: 100px;
+  width: auto;
+  display: block;
+}
+
+
+/* 
 .header .logo {
   float: none;
   display: table-cell;
@@ -221,7 +238,7 @@ a:hover {
 .header .logo img {
   max-width: 100%;
   height: 100px;
-}
+}  */
 
 .header .navbar-form .form-control {
   width: 300px;
@@ -247,7 +264,7 @@ a:hover {
 }
 
 .header .right {
-  float: none;
+  float: right;
   display: table-cell;
   vertical-align: middle;
   padding-right: 0;
@@ -353,6 +370,15 @@ a:hover {
 }
 
 .menu > ul {
+  display: flex;
+  justify-content: center; 
+  gap: 20px; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+/* .menu > ul {
   margin: 0 auto;
   width: 100%;
   list-style: none;
@@ -360,11 +386,7 @@ a:hover {
   position: relative;
   box-sizing: border-box;
   background: #ffffff;
-  /* margin-left: 0%;
-  margin-right: 0%; */
-  /* background-image: url('../uploads/bebe.png'); */
-
-}
+}  */
 
 .menu > ul:before,
 .menu > ul:after {
@@ -700,8 +722,18 @@ Mobile style's
   color: #333;
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  font-style:italic;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  width: 100%;
+  max-width: 100%;
 }
+
+
+
 
 .product .text h3 a:hover {
   text-decoration: none;
@@ -1193,6 +1225,7 @@ ul.nav-tabs {
   margin-top: 0;
   font-size: 24px;
   font-weight: 700;
+  font-style: italic;
 }
 
 .product .p-status {
@@ -1238,6 +1271,7 @@ ul.nav-tabs {
 
 .product .btn-cart {
   margin-bottom: 30px;
+  
 }
 
 .product .btn-cart a {
@@ -1253,6 +1287,10 @@ ul.nav-tabs {
   /* background: #0d1452; */
   background: #f19000;
   color: #fff;
+  border-radius: 30px;
+  width: 300px;
+  height: 40px;
+  margin: 10px 10px;
 }
 
 .product .share {
@@ -1588,7 +1626,7 @@ i.red {
 }
 .videos h2 {
   color: #464646;
-  font-family: "Open Sans", serif;
+  font-family: "Arial", sans-serif;
   font-size: 26px;
   font-weight: 800;
   position: relative;
@@ -1596,7 +1634,7 @@ i.red {
 }
 .videos h3 {
   color: #464646;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 40px;
@@ -1752,7 +1790,7 @@ table.bill-address tr td:nth-of-type(1) {
 }
 
 .blog .text-single h3 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial", sans-serif;
   margin-top: 20px;
 }
 
@@ -1761,7 +1799,7 @@ table.bill-address tr td:nth-of-type(1) {
 }
 
 .blog h3 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial", sans-serif;
   text-align: left;
   color: #333;
   font-weight: 700;
@@ -1773,7 +1811,7 @@ table.bill-address tr td:nth-of-type(1) {
 }
 
 .blog h3 a {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial", sans-serif;
   color: #333;
 }
 
@@ -1873,7 +1911,7 @@ table.bill-address tr td:nth-of-type(1) {
 }
 
 .blog p.button a {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial", sans-serif;
   background: #0d1452;
   color: #fff;
   padding: 10px 14px;
@@ -2036,7 +2074,7 @@ table.bill-address tr td:nth-of-type(1) {
 }
 
 .widget h4 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 22px;
   font-weight: 700;
   padding-bottom: 6px;
@@ -2242,8 +2280,7 @@ div.pagination span.disabled {
 
 .home-newsletter {
   padding: 80px 0;
-  /* background: #0d1452; */
-  background: #232f3e;
+  background: #ffeef3;
 }
 
 .home-newsletter .single {
@@ -2255,7 +2292,7 @@ div.pagination span.disabled {
 }
 .home-newsletter .single h2 {
   font-size: 22px;
-  color: white;
+  color: rgb(0, 0, 0);
   text-transform: uppercase;
   margin-bottom: 40px;
   margin-top: 0;
@@ -2289,13 +2326,11 @@ div.pagination span.disabled {
   text-align: center;
 }
 
-.spcl_section .heading_container img {
-  height: 50%;
-  width: 50%;
-}
+
 
 .spcl_section .heading_container {
   justify-items: center;
+ 
 }
 .spcl_section .img-box {
   display: -webkit-box;
@@ -2305,13 +2340,13 @@ div.pagination span.disabled {
       -ms-flex-pack: center;
           justify-content: center;
         
-  background: linear-gradient(to bottom, transparent 70%,#fdd2d2  70%);
+  background: linear-gradient(to bottom, transparent 70%, #ffeef3  70%);
   padding: 0 10px 30px 10px;
 }
 
 .spcl_section .img-box img {
-  width: 90%;
-  height: 50vh;
+  width: 100%;
+  height: 70vh;
   
 }
 .spcl .img-box {
@@ -2322,7 +2357,7 @@ div.pagination span.disabled {
       -ms-flex-pack: center;
           justify-content: center;
         
-  background: linear-gradient(to bottom, transparent 70%,#fdd2d2  70%);
+  background: linear-gradient(to bottom, transparent 70%, #ffeef3  70%);
   padding: 0 50px 30px 50px;
 }
 
@@ -2331,14 +2366,25 @@ div.pagination span.disabled {
   height: 60vh;
   
 }
-
+.custom-img-size {
+  width: 380px;     /* أو أي حجم تريده */
+  height: 180px;     /* للحفاظ على تناسب الصورة */
+  max-width: 100%;  /* حتى لا تخرج عن الحاوية */
+  margin: 0%;
+  padding: 0%;
+}
+.txt {
+  font-size: 18px;        /* تكبير الخط، غيّره حسب الحاجة */
+  line-height: 1.8;       /* المسافة بين الأسطر (180%) */
+  margin-bottom: 10px;    /* مسافة بين كل h6 والتي تليها */
+  font-weight: 600;       /* لجعل الخط أوضح (اختياري) */
+}
 
 .btn-pdf {
-  background-color: #ffc0c0;       /* rouge foncé */
-  color: #fff;
+  background-color: #ffffff;      /* rouge foncé */
+  color: #000000;
   padding: 5px 10px;
-  border: none;
-  border-radius: 8px;
+  border-radius: 20px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -2347,7 +2393,7 @@ div.pagination span.disabled {
 }
 
 .btn-pdf:hover {
-  background-color: #fc9f9f;       /* rouge encore plus foncé au hover */
+  background-color: #FF33FF;      /* rouge encore plus foncé au hover */
   transform: translateY(-2px);     /* petit effet de soulèvement */
 }
 
@@ -2356,3 +2402,8 @@ div.pagination span.disabled {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+.srv{
+  font-size: 16px;
+  font-weight: bold;
+
+}

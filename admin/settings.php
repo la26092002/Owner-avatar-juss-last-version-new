@@ -897,8 +897,7 @@ foreach ($result as $row) {
                         <li><a href="#tab_5" data-toggle="tab">Produits</a></li>
                         <li><a href="#tab_6" data-toggle="tab">Paramètres de la Maison</a></li>
                         <li><a href="#tab_7" data-toggle="tab">Paramètres de Bannière</a></li>
-                        <li><a href="#tab_9" data-toggle="tab">Paramètres de Paiement</a></li>
-                        <li><a href="#tab_10" data-toggle="tab">Scripts de Tête et de Corps</a></li>
+                       <li><a href="#tab_10" data-toggle="tab">Scripts de Tête et de Corps</a></li>
                        <!--<li><a href="#tab_11" data-toggle="tab">Ads</a></li>-->
                     </ul>
                     <div class="tab-content">

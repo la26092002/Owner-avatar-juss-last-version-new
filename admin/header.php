@@ -26,6 +26,8 @@ if(!isset($_SESSION['user'])) {
 
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+	<meta charset="UTF-8">
+
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/ionicons.min.css">
@@ -49,7 +51,7 @@ if(!isset($_SESSION['user'])) {
 		<header class="main-header">
 
 			<a href="index.php" class="logo">
-				<span class="logo-lg">Adawatcom</span>
+				<span class="logo-lg">JUSS</span>
 			</a>
 
 			<nav class="navbar navbar-static-top">
