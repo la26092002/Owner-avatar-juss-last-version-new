@@ -106,15 +106,6 @@ foreach ($result as $row) {
 		<style>
 
 
-.menu-mobile{
-    background-color: black;
-    
-}
-
-.pl_0 {
-    background-color: black;
-    
-}
 
 
 
@@ -144,18 +135,18 @@ body {
 .nav .col-md-12.pl_0.pr_0 {
     padding: 0;
 }
-
+/* 
 .nav .menu-container {
     width: 100%;
     display: flex;
     justify-content: center;
     background: #fff; /* Match nav background */
-}
+/* } */
 
-.nav .menu {
+/* .nav .menu {
     display: inline-block;
 }
-
+ */
 
 
 
@@ -228,12 +219,6 @@ body {
 
 
 
-
-
-
-
-
-////////image  part 
 
 .spcl_section {
   width: 100%;
@@ -428,10 +413,9 @@ body {
     <div class="container">
         <div class="row inner">
             <!-- Colonne vide à gauche pour pousser le logo au centre -->
-            <div class="col-md-4"></div>
             
             <!-- Logo centré -->
-            <div class="col-md-4 logo text-center">
+            <div class="col-md-4 logo">
                 <a href="index.php"><img src="assets/uploads/<?php echo $logo; ?>" alt="logo image"></a>
             </div>
             

@@ -109,15 +109,6 @@ foreach ($result as $row) {
 
 
 
-.menu-mobile{
-    background-color: black;
-    
-}
-
-.pl_0 {
-    background-color: black;
-    
-}
 
 
 
@@ -150,16 +141,7 @@ body {
     padding: 0;
 }
 
-.nav .menu-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: #fff; /* Match nav background */
-}
 
-.nav .menu {
-    display: inline-block;
-}
 
 
 
@@ -431,7 +413,6 @@ body {
     <div class="container">
         <div class="row inner">
             <!-- Colonne vide à gauche pour pousser le logo au centre -->
-            <div class="col-md-4"></div>
             
             <!-- Logo centré -->
             <div class="col-md-4 logo text-center">

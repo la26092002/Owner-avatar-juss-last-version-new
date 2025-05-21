@@ -105,17 +105,6 @@ foreach ($result as $row) {
 
 
 
-.menu-mobile{
-    background-color: black;
-    
-}
-
-.pl_0 {
-    background-color: black;
-    
-}
-
-
 
 
 
@@ -144,26 +133,6 @@ body {
 .nav .col-md-12.pl_0.pr_0 {
     padding: 0;
 }
-
-.nav .menu-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: #fff; /* Match nav background */
-}
-
-.nav .menu {
-    display: inline-block;
-}
-
-
-
-
-
-
-
-
-
 
 
 /* Style de la barre noire originale (inchangé) */
@@ -426,8 +395,7 @@ body {
 <div class="header">
     <div class="container">
         <div class="row inner">
-            <!-- Colonne vide à gauche pour pousser le logo au centre -->
-            <div class="col-md-4"></div>
+            
             
             <!-- Logo centré -->
             <div class="col-md-4 logo text-center">

@@ -816,7 +816,7 @@ foreach ($result as $row)
     <div class="col-md-6 d-flex justify-content-center p-4">
       <div class="detail-box text-center w-150">
         <div class="heading_container">
-         <img src="assets/uploads/favicon.png" alt="" class="img-fluid custom-img-size">
+         <img src="assets/uploads/lg-rb.png" alt="" class="img-fluid custom-img-size">
 
         </div>
         <h6 class="txt">1. TECHNOLOGIE BREVETÉE</h6>
