@@ -403,32 +403,32 @@ body {
 
 
 <div class="header">
-    <div class="container">
-        <div class="row inner">
-            
-            <!-- Logo centré -->
-            <div class="col-md-4 logo text-center">
-                <a href="index.php"><img src="assets/uploads/<?php echo $logo; ?>" alt="logo image"></a>
-            </div>
+  <div class="container">
+    <div class="row inner">
+      <div class="col-md-4 logo">
+        <a href="index.php">
+          <img src="assets/uploads/<?php echo $logo; ?>" alt="logo image">
+        </a>
+      </div>
             
             <!-- Éléments alignés à droite -->
             <div class="col-md-4 right text-right">
                 <ul style="list-style: none; padding: 0; margin: 0;">
-                    <?php
+                     <?php
                     if(isset($_SESSION['customer'])) {
                         ?>
-                        <li style="display: inline-block; margin-left: 15px; color: #000000;"><i class="fa fa-user" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_13; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #000000; text-decoration: none;"><i class="fa fa-home" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_89; ?></a></li>
+                        <li style="display: inline-block; margin-left: 15px; color: #FFFFFF;"><i class="fa fa-user" style="margin-right: 5px; font-size: 40px;"></i>  <?php echo $_SESSION['customer']['cust_name']; ?></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-home" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
                         <?php
                     } else {
                         ?>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="login.php" style="color: #000000; text-decoration: none;"><i class="fa fa-sign-in" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_9; ?></a></li>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="registration.php" style="color: #000000; text-decoration: none;"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_15; ?></a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="login.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-sign-in" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="registration.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-user-plus" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
                         <?php	
                     }
                     ?>
 
-                    <li style="display: inline-block; margin-left: 15px;"><a href="cart.php" style="color: #000000; text-decoration: none;"><i class="fa fa-shopping-cart" style="margin-right: 5px;"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
+                    <li style="display: inline-block; margin-left: 15px;"><a href="cart.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-shopping-cart" style="margin-right: 5px; font-size: 40px;"></i>  (<?php echo LANG_VALUE_1; ?><?php
                     if(isset($_SESSION['cart_p_id'])) {
                         $table_total_price = 0;
                         $i=0;
@@ -465,7 +465,7 @@ body {
 				<div class="menu-container">
 					<div class="menu">
 						<ul>
-							<li><a href="index.php">Accueil</a></li>
+							
 							
 							<?php
 							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
@@ -518,11 +518,7 @@ body {
 							}
 							?>
 
-							<li><a href="about.php"><?php echo $about_title; ?></a></li>
-							<li><a href="faq.php"><?php echo $faq_title; ?></a></li>
-
-							<li><a href="contact.php"><?php echo $contact_title; ?></a></li>
-						</ul>
+							</ul>
 					</div>
 				</div>
 			</div>

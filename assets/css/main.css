@@ -143,6 +143,11 @@ a:hover {
   list-style-type: none;
   float: left;
   margin-left: 5px;
+  
+}
+
+html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.no-cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.no-applicationcache.svg.inlinesvg.smil.svgclippaths body div.header div.container div.row.inner div.col-md-4.right.text-right.d-flex.justify-content-end.align-items-center ul {
+  font-size: large;
 }
 
 .top .right ul li a {
@@ -161,6 +166,9 @@ a:hover {
   background: #1c257e;
   color: #fff;
 }
+
+
+
 
 /* .header {
   width: 100%;
@@ -1339,7 +1347,7 @@ ul.nav-tabs {
   padding-top: 15px;
   padding-bottom: 15px;
   overflow: hidden;
-  background-image: url('../uploads/banner_login.png');
+  /* background-image: url('../uploads/banner_login.png');*/
 
 }
 
@@ -1351,7 +1359,7 @@ ul.nav-tabs {
   height: 100%;
   opacity: 0.7;
   /* background: #333; */
-  background: #131921;
+  
   /* background-image: url('../uploads/banner_login.png'); */
 
 }
