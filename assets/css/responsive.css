@@ -9,11 +9,14 @@
 }
 
 @media only screen and (max-width: 991px) {
+	.header {
+		background-image: url('../img/IMG_9245.png');
+	}
 	.header .inner {display: block;}
 	.header .logo {display: block;width: 100%;text-align: center;}
-	.header .logo img {}
+	.header .logo img {margin-left: 25%;}
 	.header .search-area {display: block;}
-	.header .right {display: block;}
+	.header .right {display: block;margin: 0% 30%;}
 	.header .navbar-left {text-align: center;margin-bottom: 20px;}
 	.navbar-form .form-group {display: inline-block;}
 	.navbar-form button {display: inline-block;}

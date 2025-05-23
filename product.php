@@ -295,7 +295,7 @@ body {
     min-width: 50px;
     height: 50px;
     border: 2px solid #FFC0CB;
-    border-radius: 50%;
+    
     text-align: center;
     font-weight: bold;
     cursor: pointer;
@@ -321,7 +321,7 @@ body {
     position: absolute;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
+   
     background-color: var(--color-value);
     top: 4px;
     left: 50%;
@@ -1064,7 +1064,7 @@ if($success_message1 != '') {
     width: 50px;
     height: 50px;
     border: 2px solid #ccc;
-    border-radius: 50%;
+    
     text-align: center;
     font-weight: bold;
     cursor: pointer;
@@ -1121,7 +1121,7 @@ if($success_message1 != '') {
     min-width: 50px;
     height: 50px;
     border: 2px solid #FFC0CB;
-    border-radius: 50%;
+    
     text-align: center;
     font-weight: bold;
     cursor: pointer;
