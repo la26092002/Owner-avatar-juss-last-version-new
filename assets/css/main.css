@@ -143,11 +143,6 @@ a:hover {
   list-style-type: none;
   float: left;
   margin-left: 5px;
-  
-}
-
-html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.no-cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.no-applicationcache.svg.inlinesvg.smil.svgclippaths body div.header div.container div.row.inner div.col-md-4.right.text-right.d-flex.justify-content-end.align-items-center ul {
-  font-size: large;
 }
 
 .top .right ul li a {
@@ -166,9 +161,6 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
   background: #1c257e;
   color: #fff;
 }
-
-
-
 
 /* .header {
   width: 100%;
@@ -189,7 +181,7 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
   content: "";
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background-image: url('../uploads/IMG_9244.png');
+  background-image: url('../uploads/nv-bnr.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -198,31 +190,44 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
 
 
 .header .inner {
+  /* position: relative;
+  z-index: 1;
+  width: 100%; */
+
   position: relative;
   z-index: 1;
   width: 100%;
+  display: flex;
+  align-items: flex-start; /* يصعد كل العناصر لأعلى */
+  justify-content: start; /* توزع العناصر بين اليمين واليسار */
 
 }
 
 
 .header {
-  position: relative;
+  /* position: relative;
   overflow: hidden;
   height: 200px;
   background: #fff;
   display: flex;
   align-items: center;      
   background-image: url('../uploads/IMG_9244.png'); 
-  background-size: cover;         /* يجعل الصورة تغطي كل المساحة */
-  background-position: center;    /* يوسط الصورة */
-  background-repeat: no-repeat;   /* يمنع التكرار */
-  padding: 0; /* تأكد من عدم وجود padding */
+  background-size: cover;         
+  background-position: center;    
+  background-repeat: no-repeat;  
+  padding: 0;  */
 
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  background: #fff;
+  background-image: url('../uploads/IMG_9244.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
 } 
 
-/* .header .inner {
-  width: 100%;
-} */
 .header .logo {
   display: flex;
   align-items: flex-start; /* تجعل المحتوى يصعد لأعلى */
@@ -233,6 +238,8 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
   height: 100px;
   width: auto;
   display: block;
+
+  margin-top: 0;
 }
 
 
@@ -276,6 +283,8 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
   display: table-cell;
   vertical-align: middle;
   padding-right: 0;
+  margin-left: 35%;
+  margin-top: 3.2%;
 }
 
 .header .right ul {
@@ -287,7 +296,7 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
   list-style-type: none;
   float: left;
   margin-left: 14px;
-  color: #0d1452;
+  color: #000000;
 }
 
 .header .right ul li a {
@@ -469,7 +478,7 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
 }
 
 .menu > ul > li > ul > li a {
-  color: #1977cc;
+  color: #ffeef3;
   padding: 0.2em 0.7em;
   width: 95%;
   display: block;
@@ -478,7 +487,7 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
   font-size: 14px;
   color: #333;
   /* box-shadow: 2px 2px 2px rgb(226, 42, 42); */
-  border: 2px solid rgb(89, 169, 249);
+  border: 2px solid #ffeef3;
   border-radius: 5px;
 
 }
@@ -762,7 +771,7 @@ Mobile style's
 
 .product .text p a {
   /* background: #0d1452; */
-  background: #e7a340;
+  background: #ffd0de;
   color: #fff;
   font-size: 14px;
   padding: 6px 10px;
@@ -1347,7 +1356,7 @@ ul.nav-tabs {
   padding-top: 15px;
   padding-bottom: 15px;
   overflow: hidden;
-  /* background-image: url('../uploads/banner_login.png');*/
+  background-image: url('../uploads/banner_login.png');
 
 }
 
@@ -1359,7 +1368,7 @@ ul.nav-tabs {
   height: 100%;
   opacity: 0.7;
   /* background: #333; */
-  
+  /* background: #131921;*/
   /* background-image: url('../uploads/banner_login.png'); */
 
 }
@@ -1454,14 +1463,14 @@ ul.nav-tabs {
 
 .cart-buttons li input[type="submit"],
 .cart-buttons li a {
-  background: #0d1452;
+  background: #ffeef3;
   border: 0;
   border-radius: 0;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   font-size: 18px;
   padding: 10px 20px;
-  color: #fff;
+  color: #000;
 }
 
 .cart-buttons li input[type="submit"]:hover,
@@ -1708,7 +1717,7 @@ table.bill-address tr td:nth-of-type(1) {
 }
 
 .user-sidebar ul li a {
-  padding: 7px 20px;
+  
   min-height: 40px;
   line-height: 40px;
   background: #444;

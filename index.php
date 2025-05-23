@@ -473,7 +473,7 @@ img {
 </div>
 
 
- <div class="header">
+<div class="header">
   <div class="container">
     <div class="row inner">
       <div class="col-md-4 logo">
@@ -488,18 +488,17 @@ img {
                      <?php
                     if(isset($_SESSION['customer'])) {
                         ?>
-                        <li style="display: inline-block; margin-left: 15px; color: #FFFFFF;"><i class="fa fa-user" style="margin-right: 5px; font-size: 30px;"></i>  <?php echo $_SESSION['customer']['cust_name']; ?></li>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-home" style="margin-right: 5px; font-size: 30px;"></i> </a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-home" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
                         <?php
                     } else {
                         ?>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="login.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-sign-in" style="margin-right: 5px; font-size: 30px;"></i> </a></li>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="registration.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-user-plus" style="margin-right: 5px; font-size: 30px;"></i> </a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="login.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-sign-in" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="registration.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-user-plus" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
                         <?php	
                     }
                     ?>
 
-                    <li style="display: inline-block; margin-left: 15px;"><a href="cart.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-shopping-cart" style="margin-right: 5px; font-size: 30px;"></i>  (<?php echo LANG_VALUE_1; ?><?php
+                    <li style="display: inline-block; margin-left: 15px;"><a href="cart.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-shopping-cart" style="margin-right: 5px; font-size: 40px;"></i>  (<?php echo LANG_VALUE_1; ?><?php
                     if(isset($_SESSION['cart_p_id'])) {
                         $table_total_price = 0;
                         $i=0;
@@ -723,22 +722,20 @@ foreach ($result as $row)
     <div class="container">
         <h2 class="section-title">NOS COUP DE ♡</h2>
         <div class="image-row">
-            
-                    <?php
-                    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_is_featured=? AND p_is_active=? LIMIT ".$total_featured_product_home);
-                    $statement->execute(array(1,1));
-                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-                    foreach ($result as $row) {
-                        ?>
-                        
-                         <div class="image-container">
-                <img src="assets/uploads/<?php echo $row['p_featured_photo']; ?>" alt="Coupe Coeur 1" class="coupe-coeur-img">
-            </div>
-            
-            
-                        <?php
-                    }
-                    ?>
+            <?php
+            $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_is_featured=? AND p_is_active=? LIMIT ".$total_featured_product_home);
+            $statement->execute(array(1,1));
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+            foreach ($result as $row) {
+            ?>
+                <div class="image-container">
+                    <a href="product.php?id=<?php echo $row['p_id']; ?>">
+                        <img src="assets/uploads/<?php echo $row['p_featured_photo']; ?>" alt="Coupe Coeur 1" class="coupe-coeur-img">
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 </section>

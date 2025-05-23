@@ -348,14 +348,14 @@ body {
     text-transform: capitalize;
     transition: all 0.3s ease;
     background-color: white;
-    color: #333; /* Default text color */
+    color: black; /* Default text color */
 }
 
 /* Color Labels - White by default with colored border */
 .option-group input[type="radio"][name="color_id"] + label {
     background-color: white !important;
     border: 2px solid var(--color-value); /* Will show the color as border */
-    color: #333; /* Dark text for visibility */
+    color: black; /* Dark text for visibility */
     position: relative;
 }
 
@@ -567,7 +567,6 @@ body {
                      <?php
                     if(isset($_SESSION['customer'])) {
                         ?>
-                        <li style="display: inline-block; margin-left: 15px; color: #FFFFFF;"><i class="fa fa-user" style="margin-right: 5px; font-size: 40px;"></i>  <?php echo $_SESSION['customer']['cust_name']; ?></li>
                         <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-home" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
                         <?php
                     } else {
@@ -668,7 +667,7 @@ body {
 							}
 							?>
 
-							</ul>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -1182,7 +1181,7 @@ if($success_message1 != '') {
 .option-group input[type="radio"][name="color_id"] + label {
     background-color: var(--color-value); /* Will be set inline */
     border: 2px solid #FFC0CB;
-    color: white;
+    color: black;
     text-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
@@ -1270,10 +1269,6 @@ if($success_message1 != '') {
                                 <input type="submit" value="<?php echo LANG_VALUE_154; ?>" name="form_add_to_cart">
 							</div>
                             </form>
-							<div class="share">
-                                <?php echo LANG_VALUE_58; ?> <br>
-								<div class="sharethis-inline-share-buttons"></div>
-							</div>
 						</div>
 					</div>
 

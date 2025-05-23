@@ -107,8 +107,8 @@
     margin-bottom: 10px;
 }
 #left ul.nav>li.cat-level-1.parent>a {
-    border: solid 1px #1977cc;
-    background: #1977cc;
+    border: solid 1px #ffeef3;
+    background: #ffeef3;
     color: #000000;
 }
 #left ul.nav>li.cat-level-1.parent>a>.sign,
@@ -117,7 +117,7 @@
     background-color: #172c3f;
 }
 #left ul.nav>li.cat-level-1 .lbl {
-    color: #fff;
+    color: #000000;
 }
 #left ul.nav>li.cat-level-1 .lbl1 {
     color: #e4144d;

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le :  sam. 10 mai 2025 à 16:41
--- Version du serveur :  8.0.17
--- Version de PHP :  7.3.10
+-- Host: db:3306
+-- Generation Time: May 23, 2025 at 03:08 AM
+-- Server version: 5.7.44
+-- PHP Version: 8.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `ecommerceweb`
+-- Database: `mydb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_color`
+-- Table structure for table `tbl_color`
 --
 
 CREATE TABLE `tbl_color` (
@@ -34,45 +33,19 @@ CREATE TABLE `tbl_color` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_color`
+-- Dumping data for table `tbl_color`
 --
 
 INSERT INTO `tbl_color` (`color_id`, `color_name`) VALUES
-(1, 'Red'),
-(2, 'Black'),
-(3, 'Blue'),
-(4, 'Yellow'),
-(5, 'Green'),
-(6, 'White'),
-(7, 'Orange'),
-(8, 'Brown'),
-(9, 'Tan'),
-(10, 'Pink'),
-(11, 'Mixed'),
-(12, 'Lightblue'),
-(13, 'Violet'),
-(14, 'Light Purple'),
-(15, 'Salmon'),
-(16, 'Gold'),
-(17, 'Gray'),
-(18, 'Ash'),
-(19, 'Maroon'),
-(20, 'Silver'),
-(21, 'Dark Clay'),
-(22, 'Cognac'),
-(23, 'Coffee'),
-(24, 'Charcoal'),
-(25, 'Navy'),
-(26, 'Fuchsia'),
-(27, 'Olive'),
-(28, 'Burgundy'),
-(29, 'Midnight Blue'),
-(30, 'test');
+(31, 'Noir'),
+(32, 'Rouge'),
+(33, 'Orange'),
+(34, 'Bleu');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_country`
+-- Table structure for table `tbl_country`
 --
 
 CREATE TABLE `tbl_country` (
@@ -81,7 +54,7 @@ CREATE TABLE `tbl_country` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `tbl_country`
+-- Dumping data for table `tbl_country`
 --
 
 INSERT INTO `tbl_country` (`country_id`, `country_name`) VALUES
@@ -334,7 +307,7 @@ INSERT INTO `tbl_country` (`country_id`, `country_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_customer`
+-- Table structure for table `tbl_customer`
 --
 
 CREATE TABLE `tbl_customer` (
@@ -356,7 +329,7 @@ CREATE TABLE `tbl_customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_customer`
+-- Dumping data for table `tbl_customer`
 --
 
 INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_cname`, `cust_email`, `cust_phone`, `cust_country`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_password`, `cust_token`, `cust_datetime`, `cust_timestamp`, `cust_status`) VALUES
@@ -374,12 +347,12 @@ INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_cname`, `cust_email`, 
 (13, 'Boufera Mostafa', '', 'Bouferamos@gmail.com', '0675211822', 3, '102 ghriss', 'mascara', 'ghriss', '29500', 'e10adc3949ba59abbe56e057f20f883e', '12853ae873a61ff9a3ab8752b3b226ce', '2024-08-02 09:47:10', '1722617230', 1),
 (18, 'mohamed toua', '', 'adawatcom29@gmail.com', '0556502114', 0, 'la guare', '', '', '', '84c381b4c592df98364ea4362e9323b8', '', '2024-08-30 11:13:17', '', 1),
 (19, 'younes chelali', '', 'youneschell2000@gmail.com', '0556502057', 0, 'mascara 600\r\n\r\n', '', '', '', '4297f44b13955235245b2497399d7a93', '', '2025-05-04 12:18:30', '', 1),
-(20, 'Elhadj Larbi Benyakhou', '', 'larbibenyakhou.info@gmail.com', '78877887', 0, 'sidi said, MASCARA', '', '', '', 'ba97dc2f7eb2f4014a250fee92718a73', '788d34a16dcbd3bbdb7d651dfbf77047', '2025-05-10 12:20:30', '1746832830', 1);
+(20, 'Elhadj Larbi Benyakhou', '', 'larbibenyakhou.info@gmail.com', '78877887', 0, 'sidi said, MASCARA', '', '', '', 'ba97dc2f7eb2f4014a250fee92718a73', '8cea565bc6e6b98aabb0ed979be8e85e', '2025-05-11 03:52:36', '1746931956', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_customer_message`
+-- Table structure for table `tbl_customer_message`
 --
 
 CREATE TABLE `tbl_customer_message` (
@@ -391,7 +364,7 @@ CREATE TABLE `tbl_customer_message` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_customer_message`
+-- Dumping data for table `tbl_customer_message`
 --
 
 INSERT INTO `tbl_customer_message` (`customer_message_id`, `subject`, `message`, `order_detail`, `cust_id`) VALUES
@@ -404,7 +377,7 @@ INSERT INTO `tbl_customer_message` (`customer_message_id`, `subject`, `message`,
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_end_category`
+-- Table structure for table `tbl_end_category`
 --
 
 CREATE TABLE `tbl_end_category` (
@@ -415,29 +388,16 @@ CREATE TABLE `tbl_end_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_end_category`
+-- Dumping data for table `tbl_end_category`
 --
 
 INSERT INTO `tbl_end_category` (`ecat_id`, `ecat_name`, `mcat_id`, `tcat_id`) VALUES
-(3, 'techno', 1, 0),
-(7, 'versal', 1, 0),
-(8, 'unomax', 1, 0),
-(9, 'giant', 1, 0),
-(10, 'versal', 8, 0),
-(11, 'techno', 8, 0),
-(12, 'techno', 6, 0),
-(13, 'versal', 6, 0),
-(14, 'giant', 6, 0),
-(15, 'techno', 7, 0),
-(16, 'versal', 7, 0),
-(17, 'giant', 7, 0),
-(43, 'Homme', 23, 11),
-(44, 'femme', 24, 12);
+(44, '2nd cat 1', 6, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_faq`
+-- Table structure for table `tbl_faq`
 --
 
 CREATE TABLE `tbl_faq` (
@@ -447,7 +407,7 @@ CREATE TABLE `tbl_faq` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_faq`
+-- Dumping data for table `tbl_faq`
 --
 
 INSERT INTO `tbl_faq` (`faq_id`, `faq_title`, `faq_content`) VALUES
@@ -462,7 +422,7 @@ INSERT INTO `tbl_faq` (`faq_id`, `faq_title`, `faq_content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_language`
+-- Table structure for table `tbl_language`
 --
 
 CREATE TABLE `tbl_language` (
@@ -472,7 +432,7 @@ CREATE TABLE `tbl_language` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_language`
+-- Dumping data for table `tbl_language`
 --
 
 INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`) VALUES
@@ -586,7 +546,7 @@ INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`) VALUES
 (108, 'State', 'État'),
 (109, 'Zip Code', 'Code Postal'),
 (110, 'About Us', 'À Propos De Nous'),
-(111, 'Featured Posts', 'Articles en Vedette'),
+(111, 'Featured Posts', 'NOS COUP DE ?'),
 (112, 'Popular Posts', 'Messages Populaires'),
 (113, 'Recent Posts', 'Articles Récents'),
 (114, 'Contact Information', 'Informations de Contact'),
@@ -618,7 +578,7 @@ INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`) VALUES
 (140, 'Please enter new and retype passwords.', 'Veuillez entrer et retaper les nouveaux mots de passe.'),
 (141, 'Password is updated successfully.', 'Le mot de passe a été mis à jour avec succès.\r\n'),
 (142, 'To reset your password, please click on the link below.', 'Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous.'),
-(143, 'PASSWORD RESET REQUEST - YOUR WEBSITE.COM', 'DEMANDE DE RÉINITIALISATION DU MOT DE PASSE - JUSS.COM\r\n\r\n\r\n'),
+(143, 'PASSWORD RESET REQUEST - YOUR WEBSITE.COM', 'DEMANDE DE RÉINITIALISATION DU MOT DE PASSE - juusstanthrough.com\r\n\r\n\r\n'),
 (144, 'The password reset email time (24 hours) has expired. Please again try to reset your password.', 'Le délai pour réinitialiser le mot de passe (24 heures) a expiré. Veuillez essayer de réinitialiser votre mot de passe à nouveau.'),
 (145, 'A confirmation link is sent to your email address. You will get the password reset information in there.', 'Un lien de confirmation a été envoyé à votre adresse e-mail. Vous recevrez les informations pour réinitialiser votre mot de passe à cet endroit.'),
 (146, 'Password is reset successfully. You can now login.', 'Le mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter.'),
@@ -643,7 +603,7 @@ INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_mid_category`
+-- Table structure for table `tbl_mid_category`
 --
 
 CREATE TABLE `tbl_mid_category` (
@@ -653,21 +613,19 @@ CREATE TABLE `tbl_mid_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_mid_category`
+-- Dumping data for table `tbl_mid_category`
 --
 
 INSERT INTO `tbl_mid_category` (`mcat_id`, `mcat_name`, `tcat_id`) VALUES
-(1, 'blue', 1),
-(6, 'rouge', 1),
-(7, 'vert', 1),
-(8, 'noir', 1),
-(23, 'Voyage', 11),
-(24, 'plages', 12);
+(6, 'cat 4', 1),
+(7, 'cat 3', 1),
+(8, 'cat 2', 1),
+(23, 'cat 1', 11);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_order`
+-- Table structure for table `tbl_order`
 --
 
 CREATE TABLE `tbl_order` (
@@ -684,7 +642,7 @@ CREATE TABLE `tbl_order` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_page`
+-- Table structure for table `tbl_page`
 --
 
 CREATE TABLE `tbl_page` (
@@ -723,16 +681,16 @@ CREATE TABLE `tbl_page` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_page`
+-- Dumping data for table `tbl_page`
 --
 
 INSERT INTO `tbl_page` (`id`, `about_title`, `about_content`, `about_banner`, `about_meta_title`, `about_meta_keyword`, `about_meta_description`, `faq_title`, `faq_banner`, `faq_meta_title`, `faq_meta_keyword`, `faq_meta_description`, `blog_title`, `blog_banner`, `blog_meta_title`, `blog_meta_keyword`, `blog_meta_description`, `contact_title`, `contact_banner`, `contact_meta_title`, `contact_meta_keyword`, `contact_meta_description`, `pgallery_title`, `pgallery_banner`, `pgallery_meta_title`, `pgallery_meta_keyword`, `pgallery_meta_description`, `vgallery_title`, `vgallery_banner`, `vgallery_meta_title`, `vgallery_meta_keyword`, `vgallery_meta_description`) VALUES
-(1, 'À Propos De Nous', '<h1 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Notre Histoire</h1><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">L’avancée du bronzage avec JUUSS</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Après plus de 30 ans d’informations aux dangers des rayons UV et les effets nocifs du bronzage,</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">une vision audacieuse est née: libérer les passionnés de soleil des contraintes liées</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">aux crèmes solaires, aux marques de maillots et aux expositions risquées, c’est ainsi qu’est née JUUSS,</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">une marque de vêtements révolutionnaires intégrant la technologie d’aujourd’hui et l\'innovation au service du bien-être.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">JUUSS propose une nouvelle manière de profiter du soleil en toute sécurité.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Contrairement aux vêtements classiques, les tissus de la marque JUUSS sont conçus pour laisser passer</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">une dose précise de rayons UV-A, essentiels pour un bronzage naturel et uniforme, tout en bloquant jusqu\'à 92% des rayons UV-B,</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">responsables des coups de soleil et des risques cutanés.</p><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Un lifestyle réinventé</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">La marque JUUSS a débuté avec une gamme élégante de maillots de bain pour femmes.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Aujourd\'hui, JUUSS s\'impose comme une référence pour les amateurs de plein air, que ce soit pour une journée à la plage ou une séance de yoga en plein soleil.</p><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Pourquoi choisir JUUSS ?</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">1. Protection avancée : Grâce à la technologie, JUUSS offre un confort optimal et une barrière efficace contre les rayons UV-B.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">2. Style et sécurité : Les collections combinent design élégant et innovation scientifique, permettant aux utilisateurs de bronzer sans traces ni surchauffe.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">3. Durabilité : Résistants à l\'eau et aux lavages répétés, les vêtements JUUSS garantissent une protection continue, sans perte d\'efficacité.</p><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">L\'expérience client</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">JUUSS, c\'est plus qu\'une marque. C\'est un engagement à transformer votre expérience du bronzage.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">En adoptant JUUSS, vous choisissez une solution esthétique, fonctionnelle et respectueuse de votre peau.</p><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Conclusion</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">JUUSS redéfinit la manière de profiter du soleil : fini les contraintes, place au plaisir.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Laissez-vous séduire par des vêtements qui travaillent pour vous, tout en protégeant votre santé et en sublimant votre bronzage.</p>\r\n', 'about-banner.png', 'JUUSS - À Propos De Nous', 'à propos, à propos de nous, à propos JUUSS , à propos du commerce électronique Projet JUUSS', '', 'FAQ', 'faq-banner.png', 'JUUSS - FAQ', '', '', 'Blog', 'blog-banner.jpg', 'Ecommerce - Blog', '', '', 'Contactez-Nous', 'contact-banner.png', 'JUUSS - Contact', '', '', 'Photo Gallery', 'pgallery-banner.jpg', 'Ecommerce - Photo Gallery', '', '', 'Video Gallery', 'vgallery-banner.jpg', 'Ecommerce - Video Gallery', '', '');
+(1, 'À Propos De Nous', '<h1 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Notre Histoire</h1><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">L’avancée du bronzage avec JUUSS</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Après plus de 30 ans d’informations aux dangers des rayons UV et les effets nocifs du bronzage,</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">une vision audacieuse est née: libérer les passionnés de soleil des contraintes liées</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">aux crèmes solaires, aux marques de maillots et aux expositions risquées, c’est ainsi qu’est née JUUSS,</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">une marque de vêtements révolutionnaires intégrant la technologie d’aujourd’hui et l\'innovation au service du bien-être.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">JUUSS propose une nouvelle manière de profiter du soleil en toute sécurité.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Contrairement aux vêtements classiques, les tissus de la marque JUUSS sont conçus pour laisser passer</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">une dose précise de rayons UV-A, essentiels pour un bronzage naturel et uniforme, tout en bloquant jusqu\'à 92% des rayons UV-B,</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">responsables des coups de soleil et des risques cutanés.</p><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Un lifestyle réinventé</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">La marque JUUSS a débuté avec une gamme élégante de maillots de bain pour femmes.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Aujourd\'hui, JUUSS s\'impose comme une référence pour les amateurs de plein air, que ce soit pour une journée à la plage ou une séance de yoga en plein soleil.</p><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Pourquoi choisir JUUSS ?</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">1. Protection avancée : Grâce à la technologie, JUUSS offre un confort optimal et une barrière efficace contre les rayons UV-B.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">2. Style et sécurité : Les collections combinent design élégant et innovation scientifique, permettant aux utilisateurs de bronzer sans traces ni surchauffe.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">3. Durabilité : Résistants à l\'eau et aux lavages répétés, les vêtements JUUSS garantissent une protection continue, sans perte d\'efficacité.</p><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">L\'expérience client</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">JUUSS, c\'est plus qu\'une marque. C\'est un engagement à transformer votre expérience du bronzage.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">En adoptant JUUSS, vous choisissez une solution esthétique, fonctionnelle et respectueuse de votre peau.</p><h4 style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Conclusion</h4><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">JUUSS redéfinit la manière de profiter du soleil : fini les contraintes, place au plaisir.</p><p style=\"text-align: center; border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Laissez-vous séduire par des vêtements qui travaillent pour vous, tout en protégeant votre santé et en sublimant votre bronzage.</p>\r\n', 'about-banner.jpeg', 'JUUSS - À Propos De Nous', 'à propos, à propos de nous, à propos JUUSS , à propos du commerce électronique Projet JUUSS', '', 'FAQ', 'faq-banner.jpeg', 'JUUSS - FAQ', '', '', 'Blog', 'blog-banner.jpg', 'Ecommerce - Blog', '', '', 'Contactez-Nous', 'contact-banner.jpeg', 'JUUSS - Contact', '', '', 'Photo Gallery', 'pgallery-banner.jpg', 'Ecommerce - Photo Gallery', '', '', 'Video Gallery', 'vgallery-banner.jpg', 'Ecommerce - Video Gallery', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_payment`
+-- Table structure for table `tbl_payment`
 --
 
 CREATE TABLE `tbl_payment` (
@@ -753,7 +711,7 @@ CREATE TABLE `tbl_payment` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_photo`
+-- Table structure for table `tbl_photo`
 --
 
 CREATE TABLE `tbl_photo` (
@@ -763,7 +721,7 @@ CREATE TABLE `tbl_photo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_photo`
+-- Dumping data for table `tbl_photo`
 --
 
 INSERT INTO `tbl_photo` (`id`, `caption`, `photo`) VALUES
@@ -778,7 +736,7 @@ INSERT INTO `tbl_photo` (`id`, `caption`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_post`
+-- Table structure for table `tbl_post`
 --
 
 CREATE TABLE `tbl_post` (
@@ -796,7 +754,7 @@ CREATE TABLE `tbl_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_post`
+-- Dumping data for table `tbl_post`
 --
 
 INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_slug`, `post_content`, `post_date`, `photo`, `category_id`, `total_view`, `meta_title`, `meta_keyword`, `meta_description`) VALUES
@@ -815,7 +773,7 @@ INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_slug`, `post_content`, `p
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_product`
+-- Table structure for table `tbl_product`
 --
 
 CREATE TABLE `tbl_product` (
@@ -837,17 +795,21 @@ CREATE TABLE `tbl_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_product`
+-- Dumping data for table `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `ecat_id`) VALUES
-(2, 'Short de plage court pour homme', '50', '30', 100, 'product-featured-2-1746892008.jpg', '<p>Ce short de plage court pour homme allie confort, légèreté et style estival.&nbsp;&nbsp;&nbsp;&nbsp;</p>', '<p>&nbsp;Conçu en tissu respirant et à séchage rapide, il est idéal pour les journées ensoleillées au bord de la mer ou à la piscine.&nbsp;</p>', '<p>Sa coupe courte met en valeur la silhouette tout en garantissant une grande liberté de mouvement. Doté d’une ceinture élastique avec cordon de serrage, il s’adapte parfaitement à toutes les morphologies. Disponible en plusieurs coloris et motifs tendance, c’est le compagnon incontournable de vos vacances.</p>', '', '', 0, 1, 1, 43),
-(3, 'Claquettes Luxe Femme – Élégance & Confort', '60', '45', 300, 'product-featured-2-1746892559.jpeg', '<p>Ces claquettes luxe pour femme sont le parfait mélange entre confort, raffinement et style estival. Conçues pour s’adapter à toutes les occasions – que ce soit à la plage, à la maison ou en sortie décontractée – elles sont fabriquées à partir de matériaux haut de gamme offrant une sensation agréable et une durabilité optimale. Leur design chic s’adapte aussi bien à un look de détente qu’à une tenue plus habillée.</p>', '<p data-start=\"667\" data-end=\"804\" class=\"\">Claquettes féminines haut de gamme, alliant élégance, confort et polyvalence – idéales pour la plage, la maison ou les balades estivales.</p>', '<li data-start=\"844\" data-end=\"966\" class=\"\"><p data-start=\"846\" data-end=\"966\" class=\"\"><strong data-start=\"846\" data-end=\"861\">Matériaux :</strong> Semelle antidérapante en caoutchouc souple, dessus en cuir synthétique ou tissu premium (selon modèle)</p>\r\n</li><li data-start=\"967\" data-end=\"1041\" class=\"\">\r\n<p data-start=\"969\" data-end=\"1041\" class=\"\"><strong data-start=\"969\" data-end=\"980\">Style :</strong> Moderne, élégant, disponible en plusieurs coloris tendance</p>\r\n</li><li data-start=\"1042\" data-end=\"1097\" class=\"\">\r\n<p data-start=\"1044\" data-end=\"1097\" class=\"\"><strong data-start=\"1044\" data-end=\"1057\">Confort :</strong> Semelle ergonomique, légère et souple</p>\r\n</li><li data-start=\"1098\" data-end=\"1167\" class=\"\">\r\n<p data-start=\"1100\" data-end=\"1167\" class=\"\"><strong data-start=\"1100\" data-end=\"1111\">Usage :</strong> Intérieur/extérieur – maison, plage, piscine, balades</p>\r\n</li><li data-start=\"1168\" data-end=\"1197\" class=\"\">\r\n<p data-start=\"1170\" data-end=\"1197\" class=\"\"><strong data-start=\"1170\" data-end=\"1183\">Tailles :</strong> Du 36 au 42</p>\r\n</li><p>\r\n\r\n\r\n\r\n\r\n</p><li data-start=\"1198\" data-end=\"1255\" class=\"\">\r\n<p data-start=\"1200\" data-end=\"1255\" class=\"\"><strong data-start=\"1200\" data-end=\"1215\">Entretien :</strong> Nettoyage facile avec un chiffon humide</p></li>', '<ul data-start=\"1298\" data-end=\"1608\"><li data-start=\"1298\" data-end=\"1373\" class=\"\"><p data-start=\"1300\" data-end=\"1373\" class=\"\">Toutes les commandes sont traitées dans un délai de 1 à 2 jours ouvrés.</p>\r\n</li>\r\n<li data-start=\"1374\" data-end=\"1444\" class=\"\">\r\n<p data-start=\"1376\" data-end=\"1444\" class=\"\">Livraison standard disponible en 3 à 7 jours selon la destination.</p>\r\n</li>\r\n<li data-start=\"1445\" data-end=\"1480\" class=\"\">\r\n<p data-start=\"1447\" data-end=\"1480\" class=\"\">Le paiement est 100 % sécurisé.</p>\r\n</li>\r\n<li data-start=\"1481\" data-end=\"1608\" class=\"\">\r\n<p data-start=\"1483\" data-end=\"1608\" class=\"\">Le produit doit être utilisé selon sa fonction d’usage : port de loisir ou quotidien, non adapté aux environnements extrêmes.</p>\r\n</li>\r\n</ul>', '<ul data-start=\"1650\" data-end=\"1973\"><li data-start=\"1650\" data-end=\"1701\" class=\"\"><p data-start=\"1652\" data-end=\"1701\" class=\"\">Retours acceptés sous 14 jours après réception.</p>\r\n</li>\r\n<li data-start=\"1702\" data-end=\"1793\" class=\"\">\r\n<p data-start=\"1704\" data-end=\"1793\" class=\"\">Les produits doivent être non portés, en parfait état et dans leur emballage d’origine.</p>\r\n</li>\r\n<li data-start=\"1794\" data-end=\"1879\" class=\"\">\r\n<p data-start=\"1796\" data-end=\"1879\" class=\"\">Les frais de retour sont à la charge du client sauf en cas de produit défectueux.</p>\r\n</li>\r\n<li data-start=\"1880\" data-end=\"1973\" class=\"\">\r\n<p data-start=\"1882\" data-end=\"1973\" class=\"\">Le remboursement sera effectué sous 7 jours après validation de l’état du produit retourné.</p>\r\n</li>\r\n</ul>', 0, 1, 1, 44);
+(7, 'Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK', '40', '25', 123, 'product-featured-7-1747963869.jpg', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', 4, 0, 1, 44),
+(8, 'Regatta Girls Katrisse Quick Dry One Piece Swimming Costume', '50', '30', 232, 'product-featured-8-1747964015.jpg', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', 2, 1, 1, 44),
+(9, 'Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing', '50', '40', 30, 'product-featured-9-1747964202.jpg', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', 0, 0, 1, 44),
+(10, 'Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing', '30', '20', 102, 'product-featured-10-1747964516.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', 13, 1, 1, 44),
+(11, 'Arena Boy\'s Starfish Swim Jammer- Navy Blue/Turquiose - Boys', '40', '20', 123, 'product-featured-11-1747965015.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', 0, 1, 1, 44),
+(12, 'Arena Kiko Pro Swim Jammer - Black/Multi - Boys', '50', '30', 123, 'product-featured-12-1747965218.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', 5, 1, 1, 44);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_product_color`
+-- Table structure for table `tbl_product_color`
 --
 
 CREATE TABLE `tbl_product_color` (
@@ -857,7 +819,7 @@ CREATE TABLE `tbl_product_color` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_product_color`
+-- Dumping data for table `tbl_product_color`
 --
 
 INSERT INTO `tbl_product_color` (`id`, `color_id`, `p_id`) VALUES
@@ -904,13 +866,18 @@ INSERT INTO `tbl_product_color` (`id`, `color_id`, `p_id`) VALUES
 (266, 3, 86),
 (275, 1, 58),
 (276, 2, 58),
-(278, 1, 2),
-(279, 6, 2);
+(289, 32, 8),
+(292, 33, 10),
+(293, 34, 11),
+(294, 31, 7),
+(295, 34, 12),
+(296, 32, 9),
+(297, 33, 9);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_product_photo`
+-- Table structure for table `tbl_product_photo`
 --
 
 CREATE TABLE `tbl_product_photo` (
@@ -920,7 +887,7 @@ CREATE TABLE `tbl_product_photo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_product_photo`
+-- Dumping data for table `tbl_product_photo`
 --
 
 INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`) VALUES
@@ -940,13 +907,21 @@ INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`) VALUES
 (129, '129.jpg', 98),
 (130, '130.jpg', 98),
 (131, '131.jpg', 100),
-(0, '.jpg', 2),
-(0, '.jpg', 2);
+(138, '138.jpg', 8),
+(139, '139.jpg', 8),
+(140, '140.jpg', 9),
+(141, '141.jpg', 9),
+(142, '142.jpg', 10),
+(143, '143.jpg', 10),
+(144, '144.jpg', 10),
+(145, '145.jpg', 11),
+(146, '146.jpg', 12),
+(147, '147.jpg', 12);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_product_size`
+-- Table structure for table `tbl_product_size`
 --
 
 CREATE TABLE `tbl_product_size` (
@@ -956,7 +931,7 @@ CREATE TABLE `tbl_product_size` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_product_size`
+-- Dumping data for table `tbl_product_size`
 --
 
 INSERT INTO `tbl_product_size` (`id`, `size_id`, `p_id`) VALUES
@@ -1034,20 +1009,24 @@ INSERT INTO `tbl_product_size` (`id`, `size_id`, `p_id`) VALUES
 (437, 4, 100),
 (438, 5, 100),
 (439, 6, 100),
-(0, 2, 2),
-(0, 3, 2),
-(0, 4, 2),
-(0, 12, 2),
-(0, 13, 2),
-(0, 14, 2),
-(0, 15, 2),
-(0, 16, 2),
-(0, 17, 2);
+(444, 2, 8),
+(447, 2, 10),
+(448, 3, 10),
+(449, 4, 10),
+(450, 5, 10),
+(451, 96, 11),
+(452, 2, 7),
+(453, 3, 12),
+(454, 4, 12),
+(455, 5, 12),
+(456, 6, 12),
+(457, 3, 9),
+(458, 4, 9);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_rating`
+-- Table structure for table `tbl_rating`
 --
 
 CREATE TABLE `tbl_rating` (
@@ -1061,7 +1040,7 @@ CREATE TABLE `tbl_rating` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_service`
+-- Table structure for table `tbl_service`
 --
 
 CREATE TABLE `tbl_service` (
@@ -1072,19 +1051,19 @@ CREATE TABLE `tbl_service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_service`
+-- Dumping data for table `tbl_service`
 --
 
 INSERT INTO `tbl_service` (`id`, `title`, `content`, `photo`) VALUES
-(5, 'BRONZAGE SANS EFFORT', 'Découvrez le secret pour un bronzage\r\néclatant et homogène, même en portant\r\nun maillot de bain', 'service-5.png'),
-(6, 'PROTECTION SIMPLIFIÉE', 'Protégez votre peau des rougeurs,\r\ndes brûlures et du vieillissement prématuré,\r\nà l’image d’un écran solaire SPF35 efficac', 'service-6.png'),
-(7, 'IMPACT POSITIF', 'Nos maillots de bain préservent l’équilibre fragile de\r\nl’écosystème en réduisant l’impact des résidus de\r\nprotections solaires classiques sur l’environnement', 'service-7.png'),
-(0, 'RAPIDIT', 'Profitez d’un séchage ultra-rapide !\r\nNos maillots de bain respirants laissent l’air\r\ncirculer librement à travers les fibres du tiss', 'service-.png');
+(1, 'BRONZAGE SANS EFFORT', 'Découvrez le secret pour un bronzage\r\néclatant et homogène, même en portant\r\nun maillot de bain', 'service-68295edb19ecd.png'),
+(3, 'PROTECTION SIMPLIFIÉE', 'Protégez votre peau des rougeurs,\r\ndes brûlures et du vieillissement prématuré,\r\nà l’image d’un écran solaire SPF35 efficace', 'service-68295f093ac8a.png'),
+(4, 'IMPACT POSITIF', 'Nos maillots de bain préservent l’équilibre fragile de\r\nl’écosystème en réduisant l’impact des résidus de\r\nprotections solaires classiques sur l’environnement.', 'service-68295f274107f.png'),
+(5, 'RAPIDITÉ', 'Profitez d’un séchage ultra-rapide !\r\nNos maillots de bain respirants laissent l’air\r\ncirculer librement à travers les fibres du tissu.', 'service-68296212e6dac.png');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_settings`
+-- Table structure for table `tbl_settings`
 --
 
 CREATE TABLE `tbl_settings` (
@@ -1159,19 +1138,19 @@ CREATE TABLE `tbl_settings` (
   `ads_above_popular_product_on_off` int(1) NOT NULL,
   `ads_above_testimonial_on_off` int(1) NOT NULL,
   `ads_category_sidebar_on_off` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `tbl_settings`
+-- Dumping data for table `tbl_settings`
 --
 
 INSERT INTO `tbl_settings` (`id`, `logo`, `favicon`, `footer_about`, `footer_copyright`, `contact_address`, `contact_email`, `contact_phone`, `contact_fax`, `contact_map_iframe`, `receive_email`, `receive_email_subject`, `receive_email_thank_you_message`, `forget_password_message`, `total_recent_post_footer`, `total_popular_post_footer`, `total_recent_post_sidebar`, `total_popular_post_sidebar`, `total_featured_product_home`, `total_latest_product_home`, `total_popular_product_home`, `meta_title_home`, `meta_keyword_home`, `meta_description_home`, `banner_login`, `banner_registration`, `banner_forget_password`, `banner_reset_password`, `banner_search`, `banner_cart`, `banner_checkout`, `banner_product_category`, `banner_blog`, `cta_title`, `cta_content`, `cta_read_more_text`, `cta_read_more_url`, `cta_photo`, `featured_product_title`, `featured_product_subtitle`, `latest_product_title`, `latest_product_subtitle`, `popular_product_title`, `popular_product_subtitle`, `testimonial_title`, `testimonial_subtitle`, `testimonial_photo`, `blog_title`, `blog_subtitle`, `newsletter_text`, `paypal_email`, `stripe_public_key`, `stripe_secret_key`, `bank_detail`, `before_head`, `after_body`, `before_body`, `home_service_on_off`, `home_welcome_on_off`, `home_featured_product_on_off`, `home_latest_product_on_off`, `home_popular_product_on_off`, `home_testimonial_on_off`, `home_blog_on_off`, `newsletter_on_off`, `ads_above_welcome_on_off`, `ads_above_featured_product_on_off`, `ads_above_latest_product_on_off`, `ads_above_popular_product_on_off`, `ads_above_testimonial_on_off`, `ads_category_sidebar_on_off`) VALUES
-(1, 'logo.png', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright © 2025 - JUUSS - Développé par MoovConseill', '12 Square Belsunce, Marseille 13001', 'JUUSS@gmail.com', '+33661042145', '', '<iframe\r\n  width=\"600\"\r\n  height=\"450\"\r\n  style=\"border:0;\"\r\n  loading=\"lazy\"\r\n  allowfullscreen\r\n  referrerpolicy=\"no-referrer-when-downgrade\"\r\n  src=\"https://www.google.com/maps?q=12+Square+Belsunce,+Marseille+13001&output=embed\">\r\n</iframe>\r\n', 'JUUSS@gmail.com', 'Message électronique du visiteur du site JUUSS', 'Merci d\'avoir envoyé un e-mail. Nous vous contacterons sous peu. ', 'Un lien de confirmation est envoyé à votre adresse e-mail. Vous y obtiendrez les informations de réinitialisation du mot de passe.', 4, 4, 5, 5, 10, 6, 8, 'JUSS', 'Magasin en ligne de vêtements de plage, spécialiste des tenues estivales et accessoires balnéaires.', 'projet php de commerce électronique avec base de données mysql', 'banner_login.png', 'banner_registration.png', 'banner_forget_password.png', 'banner_reset_password.png', 'banner_search.png', 'banner_cart.png', 'banner_checkout.png', 'banner_product_category.png', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Tenue de Plage à l’Honneur', 'Style, confort et soleil au rendez-vous', 'Derniers Produits', 'Notre liste de produits récemment ajoutés', 'Produits Populaires', 'Produits populaires basés sur le choix du client', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Inscrivez-vous à notre newsletter pour connaître les dernières promotions et réductions.', 'admin@ecom.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', 'Bank Name: WestView Bank\r\nAccount Number: CA100270589600\r\nBranch Name: CA Branch\r\nCountry: USA', '', '<div id=\"fb-root\"></div>\r\n<script>(function(d, s, id) {\r\n  var js, fjs = d.getElementsByTagName(s)[0];\r\n  if (d.getElementById(id)) return;\r\n  js = d.createElement(s); js.id = id;\r\n  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=323620764400430\";\r\n  fjs.parentNode.insertBefore(js, fjs);\r\n}(document, \'script\', \'facebook-jssdk\'));</script>', '', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+(1, 'logo.png', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright © 2025 - JUUSS — Développé par MoovConseils', '12 square bulsunce \r\nMarseille 13001', 'JUUSS@gmail.com', '+33661042145', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.1061451697047!2d5.376274017553178!3d43.296482655030265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c93a24d9be149d%3A0xf5c09e72c2cf5f0b!2s12%20Square%20Bulsunce%2C%2013001%20Marseille!5e0!3m2!1sfr!2sfr!4v1693491105671!5m2!1sfr!2sfr\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>\r\n\r\n', 'JUUSS@gmail.com', 'Message électronique du visiteur du site JUUSS', 'Merci d\'avoir envoyé un e-mail. Nous vous contacterons sous peu. ', 'Un lien de confirmation est envoyé à votre adresse e-mail. Vous y obtiendrez les informations de réinitialisation du mot de passe.', 4, 4, 5, 5, 10, 6, 8, 'JUUSS', 'vente articles de plage, boutique de plage, short de bain, maillot de bain, JUSS, vêtements plage été, accessoires plage', 'JUSS est une boutique en ligne spécialisée dans la vente d’articles de plage : shorts, maillots de bain, vêtements d\'été et accessoires. Découvrez notre collection tendance pour profiter pleinement de vos vacances au soleil.', 'banner_login.jpeg', 'banner_registration.jpeg', 'banner_forget_password.jpeg', 'banner_reset_password.jpeg', 'banner_search.jpeg', 'banner_cart.jpeg', 'banner_checkout.jpeg', 'banner_product_category.jpeg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Produits Phares', 'Notre liste des Meilleurs Produits en vedette', 'Derniers Produits', 'Notre liste de produits récemment ajoutés', 'Produits Populaires', 'Produits populaires basés sur le choix du client', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Inscrivez-vous à notre newsletter pour connaître les dernières promotions et réductions.', 'admin@ecom.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', 'Bank Name: WestView Bank\r\nAccount Number: CA100270589600\r\nBranch Name: CA Branch\r\nCountry: USA', '', '<div id=\"fb-root\"></div>\r\n<script>(function(d, s, id) {\r\n  var js, fjs = d.getElementsByTagName(s)[0];\r\n  if (d.getElementById(id)) return;\r\n  js = d.createElement(s); js.id = id;\r\n  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=323620764400430\";\r\n  fjs.parentNode.insertBefore(js, fjs);\r\n}(document, \'script\', \'facebook-jssdk\'));</script>', '', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_shipping_cost`
+-- Table structure for table `tbl_shipping_cost`
 --
 
 CREATE TABLE `tbl_shipping_cost` (
@@ -1181,7 +1160,7 @@ CREATE TABLE `tbl_shipping_cost` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_shipping_cost`
+-- Dumping data for table `tbl_shipping_cost`
 --
 
 INSERT INTO `tbl_shipping_cost` (`shipping_cost_id`, `country_id`, `amount`) VALUES
@@ -1193,7 +1172,7 @@ INSERT INTO `tbl_shipping_cost` (`shipping_cost_id`, `country_id`, `amount`) VAL
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_shipping_cost_all`
+-- Table structure for table `tbl_shipping_cost_all`
 --
 
 CREATE TABLE `tbl_shipping_cost_all` (
@@ -1202,7 +1181,7 @@ CREATE TABLE `tbl_shipping_cost_all` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_shipping_cost_all`
+-- Dumping data for table `tbl_shipping_cost_all`
 --
 
 INSERT INTO `tbl_shipping_cost_all` (`sca_id`, `amount`) VALUES
@@ -1211,7 +1190,7 @@ INSERT INTO `tbl_shipping_cost_all` (`sca_id`, `amount`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_size`
+-- Table structure for table `tbl_size`
 --
 
 CREATE TABLE `tbl_size` (
@@ -1220,7 +1199,7 @@ CREATE TABLE `tbl_size` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_size`
+-- Dumping data for table `tbl_size`
 --
 
 INSERT INTO `tbl_size` (`size_id`, `size_name`) VALUES
@@ -1272,12 +1251,13 @@ INSERT INTO `tbl_size` (`size_id`, `size_name`) VALUES
 (91, 'noir'),
 (92, 'test'),
 (93, '4xs'),
-(95, '40ans');
+(95, '40ans'),
+(96, 'XS');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_slider`
+-- Table structure for table `tbl_slider`
 --
 
 CREATE TABLE `tbl_slider` (
@@ -1291,16 +1271,16 @@ CREATE TABLE `tbl_slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_slider`
+-- Dumping data for table `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`id`, `photo`, `heading`, `content`, `button_text`, `button_url`, `position`) VALUES
-(1, 'slider-1.jpg', 'Bienvenue sur  JUUSS', '«Style, Protection et Bronzage»', 'En savoir plus', 'about.php', 'Center');
+(1, 'slider-1.jpg', '', 'L\'avancée', 'En savoir plus', 'about.php', 'Right');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_social`
+-- Table structure for table `tbl_social`
 --
 
 CREATE TABLE `tbl_social` (
@@ -1311,7 +1291,7 @@ CREATE TABLE `tbl_social` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_social`
+-- Dumping data for table `tbl_social`
 --
 
 INSERT INTO `tbl_social` (`social_id`, `social_name`, `social_url`, `social_icon`) VALUES
@@ -1335,7 +1315,7 @@ INSERT INTO `tbl_social` (`social_id`, `social_name`, `social_url`, `social_icon
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_subscriber`
+-- Table structure for table `tbl_subscriber`
 --
 
 CREATE TABLE `tbl_subscriber` (
@@ -1348,7 +1328,7 @@ CREATE TABLE `tbl_subscriber` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_subscriber`
+-- Dumping data for table `tbl_subscriber`
 --
 
 INSERT INTO `tbl_subscriber` (`subs_id`, `subs_email`, `subs_date`, `subs_date_time`, `subs_hash`, `subs_active`) VALUES
@@ -1360,33 +1340,35 @@ INSERT INTO `tbl_subscriber` (`subs_id`, `subs_email`, `subs_date`, `subs_date_t
 (7, 'younesch2000@mail.com', '2024-08-28', '2024-08-28 01:43:06', '9b42176701d81e14a5f3c3c8df79424c', 0),
 (8, 'younesch2@mail.com', '2024-08-28', '2024-08-28 01:45:50', 'ff4d51dd2c936fbbf53fce8e90d43ae6', 0),
 (14, 'younesch00@mail.com', '2024-08-28', '2024-08-28 01:50:16', 'efee5fa82bc0a3401d05886f20e00fdb', 1),
-(15, 'youneschell2000@gmail.com', '2024-08-28', '2024-08-28 01:50:52', '35b990987987ab12a53ba6ae7cff8f31', 1);
+(15, 'youneschell2000@gmail.com', '2024-08-28', '2024-08-28 01:50:52', '35b990987987ab12a53ba6ae7cff8f31', 1),
+(16, 'latbibenyakhou@gmail.com', '2025-05-19', '2025-05-19 05:55:58', '5059722d643a5ceb762c083d5551e011', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_top_category`
+-- Table structure for table `tbl_top_category`
 --
 
 CREATE TABLE `tbl_top_category` (
   `tcat_id` int(11) NOT NULL,
   `tcat_name` varchar(255) NOT NULL,
   `show_on_menu` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `tbl_top_category`
+-- Dumping data for table `tbl_top_category`
 --
 
 INSERT INTO `tbl_top_category` (`tcat_id`, `tcat_name`, `show_on_menu`) VALUES
-(1, 'styloo', 1),
-(11, 'short', 1),
-(12, 'claquettes', 1);
+(1, 'HAUT DE MAILLOT', 1),
+(11, 'BAS DE MAILLOT', 1),
+(12, 'UNE PIÉCE', 1),
+(13, 'BANDEAU', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -1401,7 +1383,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id`, `full_name`, `email`, `phone`, `password`, `photo`, `role`, `status`) VALUES
@@ -1415,7 +1397,7 @@ INSERT INTO `tbl_user` (`id`, `full_name`, `email`, `phone`, `password`, `photo`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tbl_video`
+-- Table structure for table `tbl_video`
 --
 
 CREATE TABLE `tbl_video` (
@@ -1425,7 +1407,7 @@ CREATE TABLE `tbl_video` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `tbl_video`
+-- Dumping data for table `tbl_video`
 --
 
 INSERT INTO `tbl_video` (`id`, `title`, `iframe_code`) VALUES
@@ -1434,189 +1416,225 @@ INSERT INTO `tbl_video` (`id`, `title`, `iframe_code`) VALUES
 (4, 'Video 3', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ViZNgU-Yt-Y\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `tbl_color`
+-- Indexes for table `tbl_color`
 --
 ALTER TABLE `tbl_color`
   ADD PRIMARY KEY (`color_id`);
 
 --
--- Index pour la table `tbl_country`
+-- Indexes for table `tbl_country`
 --
 ALTER TABLE `tbl_country`
   ADD PRIMARY KEY (`country_id`);
 
 --
--- Index pour la table `tbl_customer`
+-- Indexes for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
   ADD PRIMARY KEY (`cust_id`);
 
 --
--- Index pour la table `tbl_end_category`
+-- Indexes for table `tbl_end_category`
 --
 ALTER TABLE `tbl_end_category`
   ADD PRIMARY KEY (`ecat_id`);
 
 --
--- Index pour la table `tbl_mid_category`
+-- Indexes for table `tbl_mid_category`
 --
 ALTER TABLE `tbl_mid_category`
   ADD PRIMARY KEY (`mcat_id`);
 
 --
--- Index pour la table `tbl_order`
+-- Indexes for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `tbl_payment`
+-- Indexes for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `tbl_photo`
+-- Indexes for table `tbl_photo`
 --
 ALTER TABLE `tbl_photo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `tbl_product`
+-- Indexes for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`p_id`);
 
 --
--- Index pour la table `tbl_product_color`
+-- Indexes for table `tbl_product_color`
 --
 ALTER TABLE `tbl_product_color`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `tbl_size`
+-- Indexes for table `tbl_product_photo`
+--
+ALTER TABLE `tbl_product_photo`
+  ADD PRIMARY KEY (`pp_id`);
+
+--
+-- Indexes for table `tbl_product_size`
+--
+ALTER TABLE `tbl_product_size`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_service`
+--
+ALTER TABLE `tbl_service`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_size`
 --
 ALTER TABLE `tbl_size`
   ADD PRIMARY KEY (`size_id`);
 
 --
--- Index pour la table `tbl_slider`
+-- Indexes for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `tbl_subscriber`
+-- Indexes for table `tbl_subscriber`
 --
 ALTER TABLE `tbl_subscriber`
   ADD PRIMARY KEY (`subs_id`);
 
 --
--- Index pour la table `tbl_top_category`
+-- Indexes for table `tbl_top_category`
 --
 ALTER TABLE `tbl_top_category`
   ADD PRIMARY KEY (`tcat_id`);
 
 --
--- Index pour la table `tbl_user`
+-- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `tbl_color`
+-- AUTO_INCREMENT for table `tbl_color`
 --
 ALTER TABLE `tbl_color`
-  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT pour la table `tbl_country`
+-- AUTO_INCREMENT for table `tbl_country`
 --
 ALTER TABLE `tbl_country`
   MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
 
 --
--- AUTO_INCREMENT pour la table `tbl_customer`
+-- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
   MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT pour la table `tbl_end_category`
+-- AUTO_INCREMENT for table `tbl_end_category`
 --
 ALTER TABLE `tbl_end_category`
   MODIFY `ecat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT pour la table `tbl_mid_category`
+-- AUTO_INCREMENT for table `tbl_mid_category`
 --
 ALTER TABLE `tbl_mid_category`
-  MODIFY `mcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `mcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT pour la table `tbl_order`
+-- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `tbl_payment`
+-- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
--- AUTO_INCREMENT pour la table `tbl_photo`
+-- AUTO_INCREMENT for table `tbl_photo`
 --
 ALTER TABLE `tbl_photo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `tbl_product`
+-- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `tbl_product_color`
+-- AUTO_INCREMENT for table `tbl_product_color`
 --
 ALTER TABLE `tbl_product_color`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=298;
 
 --
--- AUTO_INCREMENT pour la table `tbl_size`
+-- AUTO_INCREMENT for table `tbl_product_photo`
+--
+ALTER TABLE `tbl_product_photo`
+  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+
+--
+-- AUTO_INCREMENT for table `tbl_product_size`
+--
+ALTER TABLE `tbl_product_size`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=459;
+
+--
+-- AUTO_INCREMENT for table `tbl_service`
+--
+ALTER TABLE `tbl_service`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tbl_size`
 --
 ALTER TABLE `tbl_size`
-  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
--- AUTO_INCREMENT pour la table `tbl_slider`
+-- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `tbl_subscriber`
+-- AUTO_INCREMENT for table `tbl_subscriber`
 --
 ALTER TABLE `tbl_subscriber`
-  MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT pour la table `tbl_top_category`
+-- AUTO_INCREMENT for table `tbl_top_category`
 --
 ALTER TABLE `tbl_top_category`
-  MODIFY `tcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `tcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT pour la table `tbl_user`
+-- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;

@@ -437,7 +437,6 @@ body {
                      <?php
                     if(isset($_SESSION['customer'])) {
                         ?>
-                        <li style="display: inline-block; margin-left: 15px; color: #FFFFFF;"><i class="fa fa-user" style="margin-right: 5px; font-size: 40px;"></i>  <?php echo $_SESSION['customer']['cust_name']; ?></li>
                         <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-home" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
                         <?php
                     } else {

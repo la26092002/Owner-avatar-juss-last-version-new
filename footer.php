@@ -396,8 +396,64 @@ Ce lien ne sera actif que pendant 24 heures.
     .copyright {
         height: 100%;
     }
+
+
+
+
+
+    .dawn {
+  height: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  background: #000000;
+  position: relative;
+}
+
+.dawn img {
+  height: 70px; /* Adjust height as needed */
+  width: auto;
+  margin: 0 20px; /* Space between images */
+  animation: scrollLeftToRight 10s linear infinite;
+}
+
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw); /* Move to the full viewport width */
+  }
+}
 </style>
 <div  class="dawn">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+
+
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+<img src="assets/uploads/banner_login.png">
+
+
 <img src="assets/uploads/banner_login.png">
 <img src="assets/uploads/banner_login.png">
 <img src="assets/uploads/banner_login.png">
