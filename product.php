@@ -105,19 +105,6 @@ foreach ($result as $row) {
 	
 	
 	<style>
-	
-	
-
-.menu-mobile{
-    background-color: black;
-    
-}
-
-.pl_0 {
-    background-color: black;
-    
-}
-
 
 
 
@@ -140,37 +127,6 @@ body {
   font-style: italic;
 }
 
-
-
-/* Navigation Styles */
-.nav {
-    background: #fff; /* Set your desired background color */
-    width: 100%;
-}
-
-.nav .container {
-    max-width: 100%;
-    padding: 0;
-}
-
-.nav .row {
-    margin: 0;
-}
-
-.nav .col-md-12.pl_0.pr_0 {
-    padding: 0;
-}
-
-.nav .menu-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: #fff; /* Match nav background */
-}
-
-.nav .menu {
-    display: inline-block;
-}
 
 
 
@@ -517,8 +473,7 @@ body {
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
-	<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5993ef01e2587a001253a261&product=inline-share-buttons"></script>
-<?php if (!empty ($before_head)) {?>
+	<?php if (!empty ($before_head)) {?>
 <?php echo $before_head; ?>
 <?php }?>
 </head>
