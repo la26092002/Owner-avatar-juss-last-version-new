@@ -488,17 +488,17 @@ img {
                      <?php
                     if(isset($_SESSION['customer'])) {
                         ?>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-home" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="dashboard.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-home" ></i> </a></li>
                         <?php
                     } else {
                         ?>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="login.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-sign-in" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
-                        <li style="display: inline-block; margin-left: 15px;"><a href="registration.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-user-plus" style="margin-right: 5px; font-size: 40px;"></i> </a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="login.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-sign-in" ></i> </a></li>
+                        <li style="display: inline-block; margin-left: 15px;"><a href="registration.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-user-plus" ></i> </a></li>
                         <?php	
                     }
                     ?>
 
-                    <li style="display: inline-block; margin-left: 15px;"><a href="cart.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-shopping-cart" style="margin-right: 5px; font-size: 40px;"></i>  (<?php echo LANG_VALUE_1; ?><?php
+                    <li style="display: inline-block; margin-left: 15px;"><a href="cart.php" style="color: #FFFFFF; text-decoration: none;"><i class="fa fa-shopping-cart" ></i>  (<?php echo LANG_VALUE_1; ?><?php
                     if(isset($_SESSION['cart_p_id'])) {
                         $table_total_price = 0;
                         $i=0;

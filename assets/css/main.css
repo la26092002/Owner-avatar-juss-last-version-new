@@ -285,11 +285,13 @@ a:hover {
   padding-right: 0;
   margin-left: 35%;
   margin-top: 3.2%;
+  width: 88%;
 }
 
 .header .right ul {
   float: right;
   margin-bottom: 0;
+  width: auto;
 }
 
 .header .right ul li {
@@ -301,6 +303,7 @@ a:hover {
 
 .header .right ul li a {
   color: #0d1452;
+  font-size: xx-large;
 }
 
 .header .navbar-form .search-top {
