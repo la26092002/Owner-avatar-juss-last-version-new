@@ -2,41 +2,70 @@
 
 <?php
 if(isset($_POST['form1'])) {
-	$valid = 1;
+    $valid = 1;
 
-	
     $path = $_FILES['photo']['name'];
     $path_tmp = $_FILES['photo']['tmp_name'];
 
-    if($path!='') {
-        $ext = pathinfo( $path, PATHINFO_EXTENSION );
-        $file_name = basename( $path, '.' . $ext );
-        if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
+    if($path != '') {
+        $ext = pathinfo($path, PATHINFO_EXTENSION);
+        $file_name = basename($path, '.'.$ext);
+        if($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'gif') {
             $valid = 0;
             $error_message .= 'Vous devez télécharger un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
-	if($valid == 1) {
+    if($valid == 1) {
+        try {
+            if($path != '') {
+                // Delete old photo if it exists
+                if(file_exists('../assets/uploads/'.$_POST['current_photo']) && $_POST['current_photo'] != '') {
+                    if(!unlink('../assets/uploads/'.$_POST['current_photo'])) {
+                        throw new Exception("Failed to delete old image");
+                    }
+                }
 
-		if($path == '') {
-			$statement = $pdo->prepare("UPDATE tbl_slider SET heading=?, content=?, button_text=?, button_url=?, position=? WHERE id=?");
-    		$statement->execute(array($_POST['heading'],$_POST['content'],$_POST['button_text'],$_POST['button_url'],$_POST['position'],$_REQUEST['id']));
-		} else {
+                // Upload new photo
+                $final_name = 'slider-'.$_REQUEST['id'].'.'.$ext;
+                if(!move_uploaded_file($path_tmp, '../assets/uploads/'.$final_name)) {
+                    throw new Exception("Failed to upload new image");
+                }
 
-			unlink('../assets/uploads/'.$_POST['current_photo']);
+                // Update with photo
+                $statement = $pdo->prepare("UPDATE tbl_slider SET photo=?, heading=?, content=?, button_text=?, button_url=?, position=? WHERE id=?");
+                $statement->execute(array(
+                    $final_name,
+                    $_POST['heading'],
+                    $_POST['content'],
+                    $_POST['button_text'],
+                    $_POST['button_url'],
+                    $_POST['position'],
+                    $_REQUEST['id']
+                ));
+            } else {
+                // Update without changing photo
+                $statement = $pdo->prepare("UPDATE tbl_slider SET heading=?, content=?, button_text=?, button_url=?, position=? WHERE id=?");
+                $statement->execute(array(
+                    $_POST['heading'],
+                    $_POST['content'],
+                    $_POST['button_text'],
+                    $_POST['button_url'],
+                    $_POST['position'],
+                    $_REQUEST['id']
+                ));
+            }
 
-			$final_name = 'slider-'.$_REQUEST['id'].'.'.$ext;
-        	move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
-
-        	$statement = $pdo->prepare("UPDATE tbl_slider SET photo=?, heading=?, content=?, button_text=?, button_url=?, position=? WHERE id=?");
-    		$statement->execute(array($final_name,$_POST['heading'],$_POST['content'],$_POST['button_text'],$_POST['button_url'],$_POST['position'],$_REQUEST['id']));
-		}	   
-
-	    $success_message = 'Le curseur est mis à jour avec succès!';
-	}
+            $success_message = 'Le curseur est mis à jour avec succès!';
+        } catch(Exception $e) {
+            $valid = 0;
+            $error_message = 'Erreur: '.$e->getMessage();
+        }
+    }
 }
 ?>
+
+[... rest of your existing HTML/PHP code ...]
 
 <?php
 if(!isset($_REQUEST['id'])) {
