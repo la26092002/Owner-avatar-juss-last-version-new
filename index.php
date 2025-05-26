@@ -538,6 +538,7 @@ img {
 							
 							
 							<?php
+                            //changer par inverse 
 							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
 							$statement->execute();
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
