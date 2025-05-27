@@ -181,69 +181,6 @@ img {
 
 
 
-/* Style de la barre noire originale (inchangé) */
-.top {
-  background-color: #000;
-  width: 100%;
-  overflow: hidden;
-  height: 40px;
-  display: flex;
-  align-items: center;
-}
-
-/* Style de la nouvelle barre rose */
-.top-rose {
-  background-color: #FFC0CB; /* Rose */
-  width: 100%;
-  overflow: hidden;
-  height: 50px; /* Plus grande */
-  display: flex;
-  align-items: center;
-}
-
-/* Animation et texte pour la barre noire (originale) */
-.full-width-marquee {
-  width: 100%;
-  white-space: nowrap;
-  position: relative;
-}
-
-.marquee-text {
-  display: inline-block;
-  padding-left: 100%;
-  color: white; /* Texte blanc */
-  font-size: 18px;
-  font-weight: bold; /* Gras */
-  font-style: italic; /* Italique */
-  line-height: 1.3;
-  animation: marquee 20s linear infinite;
-}
-
-/* Style spécifique pour le texte de la barre rose */
-.marquee-text-rose {
-  display: inline-block;
-  padding-left: 100%;
-  color: #000; /* Texte noir */
-  font-size: 22px; /* Plus grand */
-  font-weight: bold;
-  font-style: italic; /* Italique */
-  line-height: 1.3;
-  animation: marquee 20s linear infinite; /* Même animation */
-}
-
-/* Animation commune (réutilisée) */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-
-
-
 
 
 
@@ -287,27 +224,10 @@ img {
 
 
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* Changed from -100% to -50% */
-  }
-}
 
-.marquee-text {
-  display: inline-block;
-  padding-left: 100%;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  font-style: italic;
-  line-height: 1.3;
-  animation: marquee 20s linear infinite; /* Adjusted timing */
-  white-space: nowrap;
-  width: 200%; /* Double width to accommodate duplicated content */
-}
+
+
+
 
 
 </style>
@@ -454,23 +374,12 @@ img {
 	<div id="status"></div>
 </div>-->
 
-
-
-
-<div class="top">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="full-width-marquee">
-          <div class="marquee-text">
-            Obtenez une expérience complète qui allie sécurité, esthétique et innovation. &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-            Obtenez une expérience complète qui allie sécurité, esthétique et innovation. 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<?php 
+// At the position where you want the marquee to appear in your other page
+include 'BarHead1.php'; 
+// or use require if it's essential for the page:
+// require 'BarHead.php';
+?>
 
 
 <div class="header">
@@ -513,8 +422,6 @@ img {
 				<div class="menu-container">
 					<div class="menu">
 						<ul>
-							
-							
 							<?php
                             //changer par inverse 
 							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
@@ -531,18 +438,7 @@ img {
 										foreach ($result1 as $row1) {
 											?>
 											<li><a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row1['mcat_name']; ?></a>
-												<ul>
-													<?php
-													$statement2 = $pdo->prepare("SELECT * FROM tbl_end_category WHERE mcat_id=?");
-													$statement2->execute(array($row1['mcat_id']));
-													$result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
-													foreach ($result2 as $row2) {
-														?>
-														<li><a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row2['ecat_name']; ?></a></li>
-														<?php
-													}
-													?>
-												</ul>
+												
 											</li>
 											<?php
 										}
@@ -669,21 +565,12 @@ foreach ($result as $row)
 
 </div>
 <!-- Nouvelle barre rose (texte noir) -->
-<div class="top-rose">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="full-width-marquee">
-          <div class="marquee-text-rose">
-              DES MAILLOTS DE BAINS QUI ASSURENT UNE PROTECTION CONTINUE ET FIABLE TOUT AU LONG DE LA JOURNÉE. &nbsp;&nbsp;&nbsp;&nbsp;
-            DES MAILLOTS DE BAINS QUI ASSURENT UNE PROTECTION CONTINUE ET FIABLE TOUT AU LONG DE LA JOURNÉE. &nbsp;&nbsp;&nbsp;&nbsp;
-            DES MAILLOTS DE BAINS QUI ASSURENT UNE PROTECTION CONTINUE ET FIABLE TOUT AU LONG DE LA JOURNÉE.   
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<?php 
+// At the position where you want the marquee to appear in your other page
+include 'BarHead2.php'; 
+// or use require if it's essential for the page:
+// require 'BarHead.php';
+?>
 
 <!-- Barrière avec image -->
 <!-- <div class="image-barrier" style="width: 100%; overflow: hidden; height: auto;">

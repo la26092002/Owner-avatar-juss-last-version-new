@@ -42,17 +42,6 @@ foreach ($result as $row)
 
 
 
-.dawn {
-  height: 60px;
-  overflow: hidden;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000000;
-}
-
-
 
 
  .home-newsletter {
@@ -288,10 +277,6 @@ Ce lien ne sera actif que pendant 24 heures.
                 <p class="text-white">
                     12 square bulsunce<br>
                     Marseille 13001<br>
-                    Phone:<br>
-                    +33661042145<br>
-                    Email:<br>
-                    <a href="mailto:JUUSS@gmail.com" class="text-white">JUUSS@gmail.com</a>
                 </p>
             </div>
             
@@ -401,66 +386,83 @@ Ce lien ne sera actif que pendant 24 heures.
 
 
 
-    .dawn {
-  height: 60px;
+
+
+    
+
+
+
+
+
+
+    
+
+
+.dawn {
   overflow: hidden;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  background: #000000;
+  width: 100%;
+  height: 60px; /* ajuste selon la hauteur de tes images */
   position: relative;
+  background-color:rgb(0, 0, 0); /* facultatif */
 }
+
+.dawn::before,
+.dawn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 10%;
+  height: 60%;
+  z-index: 2;
+}
+
 
 .dawn img {
-  height: 70px; /* Adjust height as needed */
-  width: auto;
-  margin: 0 20px; /* Space between images */
-  animation: scrollLeftToRight 10s linear infinite;
+  height: 80px;
+  margin-right: 30px;
 }
 
-@keyframes scrollLeftToRight {
+.dawn-scroll {
+  display: flex;
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(100vw); /* Move to the full viewport width */
+    transform: translateX(-50%);
   }
 }
+
+
 </style>
-<div  class="dawn">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
 
 
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
+<div class="dawn">
+  <div class="dawn-scroll">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
 
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
+    <!-- Clone pour boucle infinie -->
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
+    <img src="assets/uploads/banner_login.png">
 
-
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
-<img src="assets/uploads/banner_login.png">
+    
+  </div>
 </div>
 
 <div class="header">

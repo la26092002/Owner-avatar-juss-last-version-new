@@ -498,9 +498,8 @@ body {
 				<div class="menu-container">
 					<div class="menu">
 						<ul>
-							
-							
 							<?php
+                            //changer par inverse 
 							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
 							$statement->execute();
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -515,18 +514,7 @@ body {
 										foreach ($result1 as $row1) {
 											?>
 											<li><a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row1['mcat_name']; ?></a>
-												<ul>
-													<?php
-													$statement2 = $pdo->prepare("SELECT * FROM tbl_end_category WHERE mcat_id=?");
-													$statement2->execute(array($row1['mcat_id']));
-													$result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
-													foreach ($result2 as $row2) {
-														?>
-														<li><a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row2['ecat_name']; ?></a></li>
-														<?php
-													}
-													?>
-												</ul>
+												
 											</li>
 											<?php
 										}

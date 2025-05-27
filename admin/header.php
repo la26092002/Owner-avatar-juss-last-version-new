@@ -121,9 +121,12 @@ if(!isset($_SESSION['user'])) {
                             <li><a href="shipping-cost.php"><i class="fa fa-circle-o"></i>Frais de livraison</a></li>
                             <li><a href="top-category.php"><i class="fa fa-circle-o"></i>Catégorie de niveau supérieur</a></li>
                             <li><a href="mid-category.php"><i class="fa fa-circle-o"></i>Catégorie de niveau intermédiaire</a></li>
-                            <li><a href="end-category.php"><i class="fa fa-circle-o"></i> Catégorie de niveau inférieur</a></li>
                         </ul>
                     </li>
+
+
+
+	
 
 
                     <li class="treeview <?php if( ($cur_page == 'product.php') || ($cur_page == 'product-add.php') || ($cur_page == 'product-edit.php') ) {echo 'active';} ?>">
