@@ -995,6 +995,7 @@ include 'BarHead2.php';
 
 
 
+<?php include('product-section.php'); ?>
 
 
 

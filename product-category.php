@@ -101,11 +101,7 @@ foreach ($result as $row) {
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/responsive.css">
 	
-	<style>
-
-
-
-
+<style>
 
 
 /* styles.css */
@@ -115,67 +111,42 @@ body {
 
 
 
-
-/* Style de la barre noire originale (inchangé) */
-.top {
-  background-color: #000;
-  width: 100%;
-  overflow: hidden;
-  height: 40px;
-  display: flex;
-  align-items: center;
+.carousel-inner .item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Style de la nouvelle barre rose */
-.top-rose {
-  background-color: #FFC0CB; /* Rose */
-  width: 100%;
-  overflow: hidden;
-  height: 50px; /* Plus grande */
-  display: flex;
-  align-items: center;
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
-/* Animation et texte pour la barre noire (originale) */
-.full-width-marquee {
-  width: 100%;
-  white-space: nowrap;
-  position: relative;
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
+.menu-mobile{
+    background-color: black;
+    
 }
 
-.marquee-text {
-  display: inline-block;
-  padding-left: 100%;
-  color: white; /* Texte blanc */
-  font-size: 18px;
-  font-weight: bold; /* Gras */
-  font-style: italic; /* Italique */
-  line-height: 1.3;
-  animation: marquee 20s linear infinite;
+.pl_0 {
+    background-color: black;
+    
 }
-
-/* Style spécifique pour le texte de la barre rose */
-.marquee-text-rose {
-  display: inline-block;
-  padding-left: 100%;
-  color: #000; /* Texte noir */
-  font-size: 22px; /* Plus grand */
-  font-weight: bold;
-  font-style: italic; /* Italique */
-  line-height: 1.3;
-  animation: marquee 20s linear infinite; /* Même animation */
-}
-
-/* Animation commune (réutilisée) */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
+ */
 
 
 
@@ -212,7 +183,24 @@ body {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
+
 
 
 	<?php
@@ -355,22 +343,12 @@ body {
 	<div id="status"></div>
 </div>-->
 
-
-
-<div class="top">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="full-width-marquee">
-          <div class="marquee-text">
-            Obtenez une expérience complète qui allie sécurité, esthétique et innovation.                             
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<?php 
+// At the position where you want the marquee to appear in your other page
+include 'BarHead1.php'; 
+// or use require if it's essential for the page:
+// require 'BarHead.php';
+?>
 
 
 <div class="header">
@@ -461,279 +439,64 @@ body {
 		</div>
 	</div>
 </div>
+
+
+
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-foreach ($result as $row) {
-    $banner_product_category = $row['banner_product_category'];
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($result as $row)
+{
+    $cta_title = $row['cta_title'];
+    $cta_content = $row['cta_content'];
+    $cta_read_more_text = $row['cta_read_more_text'];
+    $cta_read_more_url = $row['cta_read_more_url'];
+    $cta_photo = $row['cta_photo'];
+    $featured_product_title = $row['featured_product_title'];
+    $featured_product_subtitle = $row['featured_product_subtitle'];
+    $latest_product_title = $row['latest_product_title'];
+    $latest_product_subtitle = $row['latest_product_subtitle'];
+    $popular_product_title = $row['popular_product_title'];
+    $popular_product_subtitle = $row['popular_product_subtitle'];
+    $total_featured_product_home = $row['total_featured_product_home'];
+    $total_latest_product_home = $row['total_latest_product_home'];
+    $total_popular_product_home = $row['total_popular_product_home'];
+    $home_service_on_off = $row['home_service_on_off'];
+    $home_welcome_on_off = $row['home_welcome_on_off'];
+    $home_featured_product_on_off = $row['home_featured_product_on_off'];
+    $home_latest_product_on_off = $row['home_latest_product_on_off'];
+    $home_popular_product_on_off = $row['home_popular_product_on_off'];
+
+
+	
 }
+
+
+
 ?>
 
-<?php
-if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
-    header('location: index.php');
-    exit;
-} else {
 
-    if( ($_REQUEST['type'] != 'top-category') && ($_REQUEST['type'] != 'mid-category') && ($_REQUEST['type'] != 'end-category') ) {
-        header('location: index.php');
-        exit;
-    } else {
+<?php include('product-section.php'); ?>
 
-        $statement = $pdo->prepare("SELECT * FROM tbl_top_category");
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-        foreach ($result as $row) {
-            $top[] = $row['tcat_id'];
-            $top1[] = $row['tcat_name'];
-        }
 
-        $statement = $pdo->prepare("SELECT * FROM tbl_mid_category");
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-        foreach ($result as $row) {
-            $mid[] = $row['mcat_id'];
-            $mid1[] = $row['mcat_name'];
-            $mid2[] = $row['tcat_id'];
-        }
+  
 
-        $statement = $pdo->prepare("SELECT * FROM tbl_end_category");
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-        foreach ($result as $row) {
-            $end[] = $row['ecat_id'];
-            $end1[] = $row['ecat_name'];
-            $end2[] = $row['mcat_id'];
-        }
 
-        if($_REQUEST['type'] == 'top-category') {
-            if(!in_array($_REQUEST['id'],$top)) {
-                header('location: index.php');
-                exit;
-            } else {
 
-                // Getting Title
-                for ($i=0; $i < count($top); $i++) { 
-                    if($top[$i] == $_REQUEST['id']) {
-                        $title = $top1[$i];
-                        break;
-                    }
-                }
-                $arr1 = array();
-                $arr2 = array();
-                // Find out all ecat ids under this
-                for ($i=0; $i < count($mid); $i++) { 
-                    if($mid2[$i] == $_REQUEST['id']) {
-                        $arr1[] = $mid[$i];
-                    }
-                }
-                for ($j=0; $j < count($arr1); $j++) {
-                    for ($i=0; $i < count($end); $i++) { 
-                        if($end2[$i] == $arr1[$j]) {
-                            $arr2[] = $end[$i];
-                        }
-                    }   
-                }
-                $final_ecat_ids = $arr2;
-            }   
-        }
 
-        if($_REQUEST['type'] == 'mid-category') {
-            if(!in_array($_REQUEST['id'],$mid)) {
-                header('location: index.php');
-                exit;
-            } else {
-                // Getting Title
-                for ($i=0; $i < count($mid); $i++) { 
-                    if($mid[$i] == $_REQUEST['id']) {
-                        $title = $mid1[$i];
-                        break;
-                    }
-                }
-                $arr2 = array();        
-                // Find out all ecat ids under this
-                for ($i=0; $i < count($end); $i++) { 
-                    if($end2[$i] == $_REQUEST['id']) {
-                        $arr2[] = $end[$i];
-                    }
-                }
-                $final_ecat_ids = $arr2;
-            }
-        }
 
-        if($_REQUEST['type'] == 'end-category') {
-            if(!in_array($_REQUEST['id'],$end)) {
-                header('location: index.php');
-                exit;
-            } else {
-                // Getting Title
-                for ($i=0; $i < count($end); $i++) { 
-                    if($end[$i] == $_REQUEST['id']) {
-                        $title = $end1[$i];
-                        break;
-                    }
-                }
-                $final_ecat_ids = array($_REQUEST['id']);
-            }
-        }
-        
-    }   
-}
-?>
 
-<div class="page-banner" style="background-image: url(assets/uploads/<?php echo $banner_product_category; ?>)">
-    <div class="inner">
-        <h1><?php echo LANG_VALUE_50; ?> <?php echo $title; ?></h1>
-    </div>
-</div>
 
-<div class="page">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-                <?php require_once('sidebar-category.php'); ?>
-            </div>
-            <div class="col-md-9">
-                
-                <h3><?php echo LANG_VALUE_51; ?> "<?php echo $title; ?>"</h3>
-                <div class="product product-cat">
 
-                    <div class="row">
-                        <?php
-                        // Checking if any product is available or not
-                        $prod_count = 0;
-                        $statement = $pdo->prepare("SELECT * FROM tbl_product");
-                        $statement->execute();
-                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                        foreach ($result as $row) {
-                            $prod_table_ecat_ids[] = $row['ecat_id'];
-                        }
 
-                        for($ii=0;$ii<count($final_ecat_ids);$ii++):
-                            if(in_array($final_ecat_ids[$ii],$prod_table_ecat_ids)) {
-                                $prod_count++;
-                            }
-                        endfor;
 
-                        if($prod_count==0) {
-                            echo '<div class="pl_15">'.LANG_VALUE_153.'</div>';
-                        } else {
-                            for($ii=0;$ii<count($final_ecat_ids);$ii++) {
-                                $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id=? AND p_is_active=?");
-                                $statement->execute(array($final_ecat_ids[$ii],1));
-                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                foreach ($result as $row) {
-                                    ?>
-                                    <div class="col-md-4 item item-product-cat">
-                                        <div class="inner">
-                                            <div class="thumb">
-                                                <div class="photo" style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
-                                                <div class="overlay"></div>
-                                            </div>
-                                            <div class="text">
-                                                <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
-                                                <h4>
-                                                    <?php echo $row['p_current_price']; ?> <?php echo LANG_VALUE_1; ?>
-                                                    <?php if($row['p_old_price'] != ''): ?>
-                                                    <del>
-                                                        <?php echo $row['p_old_price']; ?> <?php echo LANG_VALUE_1; ?>
-                                                    </del>
-                                                    <?php endif; ?>
-                                                </h4>
-                                                <div class="rating">
-                                                    <?php
-                                                    $t_rating = 0;
-                                                    $statement1 = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=?");
-                                                    $statement1->execute(array($row['p_id']));
-                                                    $tot_rating = $statement1->rowCount();
-                                                    if($tot_rating == 0) {
-                                                        $avg_rating = 0;
-                                                    } else {
-                                                        $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
-                                                        foreach ($result1 as $row1) {
-                                                            $t_rating = $t_rating + $row1['rating'];
-                                                        }
-                                                        $avg_rating = $t_rating / $tot_rating;
-                                                    }
-                                                    ?>
-                                                    <?php
-                                                    if($avg_rating == 0) {
-                                                        echo '';
-                                                    }
-                                                    elseif($avg_rating == 1.5) {
-                                                        echo '
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        ';
-                                                    } 
-                                                    elseif($avg_rating == 2.5) {
-                                                        echo '
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        ';
-                                                    }
-                                                    elseif($avg_rating == 3.5) {
-                                                        echo '
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        ';
-                                                    }
-                                                    elseif($avg_rating == 4.5) {
-                                                        echo '
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                        ';
-                                                    }
-                                                    else {
-                                                        for($i=1;$i<=5;$i++) {
-                                                            ?>
-                                                            <?php if($i>$avg_rating): ?>
-                                                                <i class="fa fa-star-o"></i>
-                                                            <?php else: ?>
-                                                                <i class="fa fa-star"></i>
-                                                            <?php endif; ?>
-                                                            <?php
-                                                        }
-                                                    }
-                                                    ?>
-                                                </div>
-                                                <?php if($row['p_qty'] == 0): ?>
-                                                    <div class="out-of-stock">
-                                                        <div class="inner">
-                                                            Out Of Stock
-                                                        </div>
-                                                    </div>
-                                                <?php else: ?>
-                                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_154; ?></a></p>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php
-                                }
-                            }
-                        }
-                        ?>
-                    </div>
 
-                </div>
 
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
+
 
 <?php require_once('footer.php'); ?>
+
