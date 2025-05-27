@@ -115,25 +115,6 @@ body {
 
 
 
-/* Navigation Styles */
-.nav {
-    background: #fff; /* Set your desired background color */
-    width: 100%;
-}
-
-.nav .container {
-    max-width: 100%;
-    padding: 0;
-}
-
-.nav .row {
-    margin: 0;
-}
-
-.nav .col-md-12.pl_0.pr_0 {
-    padding: 0;
-}
-
 
 /* Style de la barre noire originale (inchangé) */
 .top {

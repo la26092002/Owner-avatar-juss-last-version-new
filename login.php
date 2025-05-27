@@ -127,38 +127,6 @@ body {
 
 
 
-/* Navigation Styles */
-.nav {
-    background: #fff; /* Set your desired background color */
-    width: 100%;
-}
-
-.nav .container {
-    max-width: 100%;
-    padding: 0;
-}
-
-.nav .row {
-    margin: 0;
-}
-
-.nav .col-md-12.pl_0.pr_0 {
-    padding: 0;
-}
-
-.nav .menu-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: #fff; /* Match nav background */
-}
-
-.nav .menu {
-    display: inline-block;
-}
-
-
-
 
 
 
@@ -453,6 +421,7 @@ body {
         </div>
     </div>
 </div>
+
 
 <div class="nav">
 	<div class="container">
