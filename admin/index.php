@@ -13,9 +13,7 @@ $statement = $pdo->prepare("SELECT * FROM tbl_mid_category");
 $statement->execute();
 $total_mid_category = $statement->rowCount();
 
-$statement = $pdo->prepare("SELECT * FROM tbl_end_category");
-$statement->execute();
-$total_end_category = $statement->rowCount();
+
 
 $statement = $pdo->prepare("SELECT * FROM tbl_product");
 $statement->execute();
@@ -203,20 +201,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				</div>
 			  </div>
 
-			  <div class="col-lg-3 col-xs-6">
-				<!-- small box -->
-				<div class="small-box bg-maroon">
-				  <div class="inner">
-					<h3><?php echo $total_end_category; ?></h3>
-  
-					<p>Catégories inférieur</p>
-				  </div>
-				  <div class="icon">
-					<i class="ionicons ion-arrow-down-b"></i>
-				  </div>
-				  
-				</div>
-			  </div>
+			 
 
 		  </div>
 		  

@@ -52,43 +52,38 @@ if(isset($_POST['form1'])) {
             $ai_id=$row[10];
         }
 
-        if( isset($_FILES['photo']["name"]) && isset($_FILES['photo']["tmp_name"]) )
-        {
-            $photo = array();
-            $photo = $_FILES['photo']["name"];
-            $photo = array_values(array_filter($photo));
+        // Handle product photos with colors
+        if(isset($_FILES['photo']['name']) && is_array($_FILES['photo']['name'])) {
+            $photoCount = count($_FILES['photo']['name']);
+            for ($i = 0; $i < $photoCount; $i++) {
+                $fileName = $_FILES['photo']['name'][$i];
+                $tmpName = $_FILES['photo']['tmp_name'][$i];
+                $colorId = $_POST['photo_color'][$i] ?? null;
 
-            $photo_temp = array();
-            $photo_temp = $_FILES['photo']["tmp_name"];
-            $photo_temp = array_values(array_filter($photo_temp));
+                if (!empty($fileName)) {
+                    $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+                    if(in_array(strtolower($ext), ['jpg', 'png', 'jpeg', 'gif'])) {
+                        $uploadDir = '../assets/uploads/product_photos/';
+                        $uniqueName = 'product-photo-'.$ai_id.'-'.time().'-'.$i.'.'.$ext;
+                        $uploadPath = $uploadDir . $uniqueName;
 
-            $statement = $pdo->prepare("SHOW TABLE STATUS LIKE 'tbl_product_photo'");
-            $statement->execute();
-            $result = $statement->fetchAll();
-            foreach($result as $row) {
-                $next_id1=$row[10];
-            }
-            $z = $next_id1;
-
-            $m=0;
-            for($i=0;$i<count($photo);$i++)
-            {
-                $my_ext1 = pathinfo( $photo[$i], PATHINFO_EXTENSION );
-                if( $my_ext1=='jpg' || $my_ext1=='png' || $my_ext1=='jpeg' || $my_ext1=='gif' ) {
-                    $final_name1[$m] = $z.'.'.$my_ext1;
-                    move_uploaded_file($photo_temp[$i],"../assets/uploads/product_photos/".$final_name1[$m]);
-                    $m++;
-                    $z++;
+                        if (move_uploaded_file($tmpName, $uploadPath)) {
+                            $stmt = $pdo->prepare("INSERT INTO tbl_product_photo (photo, p_id, color_id) VALUES (?, ?, ?)");
+                            $stmt->execute([$uniqueName, $ai_id, $colorId ?: null]);
+                            
+                            // Also add to product colors if not already present
+                            if ($colorId) {
+                                $check = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id = ? AND color_id = ?");
+                                $check->execute([$ai_id, $colorId]);
+                                if (!$check->fetch()) {
+                                    $stmt = $pdo->prepare("INSERT INTO tbl_product_color (color_id, p_id) VALUES (?, ?)");
+                                    $stmt->execute([$colorId, $ai_id]);
+                                }
+                            }
+                        }
+                    }
                 }
             }
-
-            if(isset($final_name1)) {
-                for($i=0;$i<count($final_name1);$i++)
-                {
-                    $statement = $pdo->prepare("INSERT INTO tbl_product_photo (photo,p_id) VALUES (?,?)");
-                    $statement->execute(array($final_name1[$i],$ai_id));
-                }
-            }            
         }
 
         $final_name = 'product-featured-'.$ai_id.'-'.time().'.'.$ext;
@@ -131,13 +126,6 @@ if(isset($_POST['form1'])) {
         if (!empty($_POST['size'])) {
             foreach ($_POST['size'] as $value) {
                 $statement = $pdo->prepare("INSERT INTO tbl_product_size (size_id,p_id) VALUES (?,?)");
-                $statement->execute(array($value, $ai_id));
-            }
-        }
-
-        if (!empty($_POST['color'])) {
-            foreach ($_POST['color'] as $value) {
-                $statement = $pdo->prepare("INSERT INTO tbl_product_color (color_id,p_id) VALUES (?,?)");
                 $statement->execute(array($value, $ai_id));
             }
         }
@@ -242,48 +230,44 @@ if(isset($_POST['form1'])) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Sélectionnez Couleur</label>
-                            <div class="col-sm-4">
-                                <select name="color[]" class="form-control select2" multiple="multiple">
-                                    <?php
-                                    $statement = $pdo->prepare("SELECT * FROM tbl_color ORDER BY color_id ASC");
-                                    $statement->execute();
-                                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);            
-                                    foreach ($result as $row) {
-                                        ?>
-                                        <option value="<?php echo $row['color_id']; ?>"><?php echo $row['color_name']; ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Photo Sélectionnée <span>*</span></label>
                             <div class="col-sm-4" style="padding-top:4px;">
                                 <input type="file" name="p_featured_photo">
                             </div>
                         </div>
+                        
+                        <!-- Enhanced Photo Management Section -->
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Autres Photos</label>
-                            <div class="col-sm-4" style="padding-top:4px;">
-                                <table id="ProductTable" style="width:100%;">
+                            <label class="col-sm-3 control-label">Autres Photos avec Couleurs</label>
+                            <div class="col-sm-6">
+                                <table id="photoTable">
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <div class="upload-btn">
-                                                    <input type="file" name="photo[]" style="margin-bottom:5px;">
+                                            <td style="padding-bottom:10px;">
+                                                <div style="display: flex; gap: 10px;">
+                                                    <input type="file" name="photo[]" class="form-control" style="flex: 2;">
+                                                    <select name="photo_color[]" class="form-control select2" style="flex: 1;" required>
+                                                        <option value="">Sélectionnez Couleur</option>
+                                                        <?php 
+                                                        $colors = $pdo->query("SELECT * FROM tbl_color ORDER BY color_name")->fetchAll();
+                                                        foreach ($colors as $c): ?>
+                                                            <option value="<?= $c['color_id'] ?>"><?= htmlspecialchars($c['color_name']) ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                    <button type="button" class="btn btn-danger btn-xs remove-photo">X</button>
                                                 </div>
                                             </td>
-                                            <td style="width:28px;"><a href="javascript:void()" class="Delete btn btn-danger btn-xs">X</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="col-sm-2">
-                                <input type="button" id="btnAddNew" value="Add Item" style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;" class="btn btn-warning btn-xs">
+
+                                <button type="button" id="addPhoto" class="btn btn-success btn-xs">Ajouter Photo</button>
+                                <button type="button" id="previewPhotos" class="btn btn-info btn-xs" style="margin-left: 10px;">Aperçu Photos</button>
+                                <div id="photoPreview" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px;"></div>
                             </div>
                         </div>
+                        <!-- End Enhanced Photo Management Section -->
+
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Description</label>
                             <div class="col-sm-8">
@@ -344,5 +328,91 @@ if(isset($_POST['form1'])) {
         </div>
     </div>
 </section>
+
+<script>
+// Store color options HTML
+const colorOptions = `<?php
+    $options = '<option value="">Sélectionnez Couleur</option>';
+    foreach ($colors as $c) {
+        $id = htmlspecialchars($c['color_id']);
+        $name = htmlspecialchars($c['color_name']);
+        $options .= "<option value=\'{$id}\'>{$name}</option>";
+    }
+    echo $options;
+?>`;
+
+document.addEventListener('DOMContentLoaded', function () {
+    const photoTable = document.querySelector('#photoTable tbody');
+    const addPhotoBtn = document.getElementById('addPhoto');
+    const previewBtn = document.getElementById('previewPhotos');
+    const previewDiv = document.getElementById('photoPreview');
+
+    addPhotoBtn.addEventListener('click', function () {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td style="padding-bottom:10px;">
+                <div style="display: flex; gap: 10px;">
+                    <input type="file" name="photo[]" class="form-control" style="flex: 2;" required>
+                    <select name="photo_color[]" class="form-control select2" style="flex: 1;" required>
+                        ${colorOptions}
+                    </select>
+                    <button type="button" class="btn btn-danger btn-xs remove-photo">X</button>
+                </div>
+            </td>
+        `;
+        photoTable.appendChild(newRow);
+        $('.select2').select2(); // Initialize select2 on new elements
+    });
+
+    photoTable.addEventListener('click', function (e) {
+        if (e.target.classList.contains('remove-photo')) {
+            const row = e.target.closest('tr');
+            row.remove();
+        }
+    });
+
+    previewBtn.addEventListener('click', function () {
+        const rows = document.querySelectorAll('#photoTable tbody tr');
+        previewDiv.innerHTML = '';
+
+        rows.forEach(row => {
+            const fileInput = row.querySelector('input[type="file"]');
+            const colorSelect = row.querySelector('select');
+            const file = fileInput.files[0];
+            const colorId = colorSelect.value;
+            const colorName = colorSelect.options[colorSelect.selectedIndex]?.text || 'Non sélectionné';
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const image = document.createElement('img');
+                    image.src = e.target.result;
+                    image.style.maxWidth = '150px';
+                    image.style.maxHeight = '150px';
+                    image.style.border = '1px solid #ccc';
+                    image.style.borderRadius = '4px';
+                    image.style.padding = '3px';
+
+                    const info = document.createElement('p');
+                    info.textContent = 'Couleur: ' + colorName;
+                    info.style.margin = '5px 0';
+                    info.style.fontSize = '12px';
+
+                    const container = document.createElement('div');
+                    container.style.display = 'flex';
+                    container.style.flexDirection = 'column';
+                    container.style.alignItems = 'center';
+                    container.style.margin = '10px';
+                    container.appendChild(image);
+                    container.appendChild(info);
+
+                    previewDiv.appendChild(container);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+});
+</script>
 
 <?php require_once('footer.php'); ?>

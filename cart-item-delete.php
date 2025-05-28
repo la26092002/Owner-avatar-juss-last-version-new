@@ -229,7 +229,7 @@ foreach ($result as $row) {
 
 	
 <?php echo $before_head; ?>
-<?php }?>
+
 </head>
 <body>
 <?php if (!empty ($after_body)) {?>

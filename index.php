@@ -995,8 +995,6 @@ include 'BarHead2.php';
 
 
 
-<?php include('product-section.php'); ?>
-
 
 
 <?php require_once('footer.php'); ?>
