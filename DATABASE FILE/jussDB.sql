@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: May 23, 2025 at 03:08 AM
+-- Generation Time: Jul 13, 2025 at 12:23 AM
 -- Server version: 5.7.44
 -- PHP Version: 8.2.27
 
@@ -29,18 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_color` (
   `color_id` int(11) NOT NULL,
-  `color_name` varchar(255) NOT NULL
+  `color_name` varchar(255) NOT NULL,
+  `color_img` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_color`
 --
 
-INSERT INTO `tbl_color` (`color_id`, `color_name`) VALUES
-(31, 'Noir'),
-(32, 'Rouge'),
-(33, 'Orange'),
-(34, 'Bleu');
+INSERT INTO `tbl_color` (`color_id`, `color_name`, `color_img`) VALUES
+(34, 'Bleu', 'color_1748421428.jpg'),
+(35, 'ppppppppppp', 'color_1748421417.jpg');
 
 -- --------------------------------------------------------
 
@@ -377,26 +376,6 @@ INSERT INTO `tbl_customer_message` (`customer_message_id`, `subject`, `message`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_end_category`
---
-
-CREATE TABLE `tbl_end_category` (
-  `ecat_id` int(11) NOT NULL,
-  `ecat_name` varchar(255) NOT NULL,
-  `mcat_id` int(11) NOT NULL,
-  `tcat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_end_category`
---
-
-INSERT INTO `tbl_end_category` (`ecat_id`, `ecat_name`, `mcat_id`, `tcat_id`) VALUES
-(44, '2nd cat 1', 6, 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_faq`
 --
 
@@ -617,10 +596,15 @@ CREATE TABLE `tbl_mid_category` (
 --
 
 INSERT INTO `tbl_mid_category` (`mcat_id`, `mcat_name`, `tcat_id`) VALUES
-(6, 'cat 4', 1),
-(7, 'cat 3', 1),
-(8, 'cat 2', 1),
-(23, 'cat 1', 11);
+(6, 'MODÈLE LOVA', 11),
+(7, 'MODÉLE CAPRI', 11),
+(8, 'MODÈLE LUMA', 11),
+(23, 'MODELE NOOR', 11),
+(24, 'MODÈLE CALYPSO', 1),
+(25, 'MODÉLE SOLEA', 1),
+(26, 'MODELE MIRA', 1),
+(27, 'MODÉLE BAHIA', 12),
+(28, 'NOS BANDEAUX', 13);
 
 -- --------------------------------------------------------
 
@@ -791,20 +775,21 @@ CREATE TABLE `tbl_product` (
   `p_total_view` int(11) NOT NULL,
   `p_is_featured` int(1) NOT NULL,
   `p_is_active` int(1) NOT NULL,
-  `ecat_id` int(11) NOT NULL
+  `mcat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_product`
 --
 
-INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `ecat_id`) VALUES
-(7, 'Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK', '40', '25', 123, 'product-featured-7-1747963869.jpg', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', 4, 0, 1, 44),
-(8, 'Regatta Girls Katrisse Quick Dry One Piece Swimming Costume', '50', '30', 232, 'product-featured-8-1747964015.jpg', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', 2, 1, 1, 44),
-(9, 'Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing', '50', '40', 30, 'product-featured-9-1747964202.jpg', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', 0, 0, 1, 44),
-(10, 'Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing', '30', '20', 102, 'product-featured-10-1747964516.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', 13, 1, 1, 44),
-(11, 'Arena Boy\'s Starfish Swim Jammer- Navy Blue/Turquiose - Boys', '40', '20', 123, 'product-featured-11-1747965015.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', 0, 1, 1, 44),
-(12, 'Arena Kiko Pro Swim Jammer - Black/Multi - Boys', '50', '30', 123, 'product-featured-12-1747965218.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.&nbsp; These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na&nbsp;front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection,&nbsp;this is the perfect suit for the intensive swimmer\r\n&nbsp; Key Features:  45cm Leg Length Quick Drying 50+ UV Protection&nbsp; Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', 5, 1, 1, 44);
+INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `mcat_id`) VALUES
+(7, 'Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK', '40', '25', 123, 'product-featured-7-1747963869.jpg', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', '<p><a data-ved=\"0CBcQjhxqFwoTCODL8KC4uI0DFQAAAAAdAAAAABAX\" rel=\"noopener\" target=\"_blank\" href=\"https://www.fruugo.co.uk/regatta-girls-katrisse-quick-dry-one-piece-swimming-costume/p-137066178-607289854\" class=\"Hnk30e indIKd\"><h1 class=\"tE7R7 indIKd q23Yce fA1vYb cS4Vcb-pGL6qe-fwJd0c\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume | Fruugo UK</h1></a></p>', 15, 0, 1, 0),
+(8, 'Regatta Girls Katrisse Quick Dry One Piece Swimming Costume', '50', '30', 232, 'product-featured-8-1747964015.jpg', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', '<h1 class=\"mb-8 js-product-title\" title=\"Regatta Girls Katrisse Quick Dry One Piece Swimming Costume\">Regatta Girls Katrisse Quick Dry One Piece Swimming Costume</h1><p></p>', 15, 1, 1, 0),
+(9, 'Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing', '50', '40', 30, 'product-featured-9-1747964202.jpg', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', '<p>Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing<br></p>', 0, 0, 1, 0),
+(10, 'Magical Change Color Beach Shorts Men Swimming Trunks Swimwear Quick Dry Bathing', '30', '20', 102, 'product-featured-10-1747964516.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nStand out from the crowd with these Arena  Team Swim Jammer Solid apart \r\nof the Arena\'s Capsules&nbsp;Collection. These are the perfect choice for \r\nyour regular and intensive swimmers. Made with Arena\'s MaxLife Eco \r\nfabric which provides elasticity for an excellent fit with power \r\nretention performance. These Jammers deliver maximum resistance to \r\nchlorine and UV rays as well as providing an excellent elasticity fit \r\nwith power retention performance. Additional features include quick \r\ndrying properties along with a front lining for extra comfort. 45cm leg \r\nlength. Features  MaxLife Eco Fabric Quick Drying Front lined for \r\ncomfort 50+ UV Protection 45cm Leg 100% Polyester (53% of which is \r\nrecycled) </p>', 17, 1, 1, 0),
+(11, 'Arena Boy\'s Starfish Swim Jammer- Navy Blue/Turquiose - Boys', '40', '20', 123, 'product-featured-11-1747965015.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThe  Arena Starfish swim Jammers are a great choice for young club \r\nswimmers that require a durable swimsuit for training sessions. These \r\narena Starfish Jammers feature a geometric print side panel that really \r\nstands out against the Navy Blue base fabric. The  Arena Starfish swim \r\njammers have an internal draw cord so that you get a secure fit, a front\r\n lining is included for added comfort. This Jammer is made with Arena\'s \r\nMaxLife Eco fabric, which is the evolution of arena’s premium fabric for\r\n regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester. The fabric is made from PET plastic \r\nbottles, the production process has been optimized to save energy, \r\nreduce CO2 emissions and minimize water usage. Its construction is based\r\n on specifically engineered PE yarns, providing elasticity and combining\r\n an excellent fit with power retention performance. Additional features \r\ninclude its quick drying properties and 50+ UV protection, this is the \r\nperfect suit for the intensive swimmer\r\n Key Features:  Chlorine Resistant 50+ UV Protection 36 cm Leg Length \r\nQuick Drying Front Lining Material: MaxLife Eco 49% Polyester, 51% \r\nRecycled Polyester </p>', 0, 1, 1, 0),
+(12, 'Arena Kiko Pro Swim Jammer - Black/Multi - Boys', '50', '30', 123, 'product-featured-12-1747965218.jpg', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.  These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection, this is the perfect suit for the intensive swimmer\r\n  Key Features:  45cm Leg Length Quick Drying 50+ UV Protection  Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.  These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection, this is the perfect suit for the intensive swimmer\r\n  Key Features:  45cm Leg Length Quick Drying 50+ UV Protection  Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.  These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection, this is the perfect suit for the intensive swimmer\r\n  Key Features:  45cm Leg Length Quick Drying 50+ UV Protection  Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.  These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection, this is the perfect suit for the intensive swimmer\r\n  Key Features:  45cm Leg Length Quick Drying 50+ UV Protection  Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', '<p>ALWAYS CHECK THE SIZE CHART (IN IMAGE SECTION ABOVE). SIZES PROVIDED ARE\r\n UK SIZES, BE SURE TO MEASURE AND CHECK THE SIZE CHART BEFORE ORDERING. \r\nThese Arena Kiko Pro Swim Jammer feature a geometric print that ensures \r\nyou will stand out from the crowd on your next visit to the pool.  These\r\n Arena jammers have an internal draw cord so that you get a secure fit, \r\na front lining is included for added comfort. This Jammer is made with \r\nArena\'s MaxLife, 100% polyester fabric. This material is an exclusive \r\nfrom Arena MaxLife Eco which is the evolution of arena’s premium fabric \r\nfor regular and intensive swimmers, delivering maximum resistance to \r\nchlorinated water. While maintaining the same benefits as the standard \r\nfibres used in the original MaxLife, the new ecological version features\r\n more than 50% recycled polyester, obtained from PET Bottles and \r\nproduced adopting a circular economy approach that helps save energy, \r\nreduce CO2 emissions and minimize water usage during the process. Its \r\nconstruction is based on specifically engineered PE yarns, providing \r\nelasticity and combining an excellent fit with power retention \r\nperformance. Additional features include its quick drying properties and\r\n 50+ UV protection, this is the perfect suit for the intensive swimmer\r\n  Key Features:  45cm Leg Length Quick Drying 50+ UV Protection  Front \r\nLining Material: MaxLife Eco, 100% Polyester Fabric </p>', 8, 1, 1, 0),
+(18, 'mami', '120', '110', 100, 'product-featured-18-1748421663.jpg', '<p>kkkkkkkkkkk<br></p>', 'ooooooooooooooooooo<br>', '', '', '', 62, 1, 1, 28);
 
 -- --------------------------------------------------------
 
@@ -868,11 +853,13 @@ INSERT INTO `tbl_product_color` (`id`, `color_id`, `p_id`) VALUES
 (276, 2, 58),
 (289, 32, 8),
 (292, 33, 10),
-(293, 34, 11),
 (294, 31, 7),
-(295, 34, 12),
 (296, 32, 9),
-(297, 33, 9);
+(297, 33, 9),
+(299, 34, 12),
+(300, 34, 11),
+(319, 34, 18),
+(320, 35, 18);
 
 -- --------------------------------------------------------
 
@@ -883,40 +870,45 @@ INSERT INTO `tbl_product_color` (`id`, `color_id`, `p_id`) VALUES
 CREATE TABLE `tbl_product_photo` (
   `pp_id` int(11) NOT NULL,
   `photo` varchar(255) NOT NULL,
-  `p_id` int(11) NOT NULL
+  `p_id` int(11) NOT NULL,
+  `color_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_product_photo`
 --
 
-INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`) VALUES
-(106, '106.jpg', 83),
-(107, '107.jpg', 83),
-(110, '110.jpg', 85),
-(111, '111.jpg', 85),
-(114, '114.jpg', 87),
-(115, '115.jpg', 87),
-(116, '116.jpg', 88),
-(117, '117.jpg', 88),
-(118, '118.jpg', 89),
-(119, '119.jpg', 89),
-(120, '120.jpg', 90),
-(121, '121.jpg', 91),
-(127, '127.jpg', 96),
-(129, '129.jpg', 98),
-(130, '130.jpg', 98),
-(131, '131.jpg', 100),
-(138, '138.jpg', 8),
-(139, '139.jpg', 8),
-(140, '140.jpg', 9),
-(141, '141.jpg', 9),
-(142, '142.jpg', 10),
-(143, '143.jpg', 10),
-(144, '144.jpg', 10),
-(145, '145.jpg', 11),
-(146, '146.jpg', 12),
-(147, '147.jpg', 12);
+INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`, `color_id`) VALUES
+(106, '106.jpg', 83, NULL),
+(107, '107.jpg', 83, NULL),
+(110, '110.jpg', 85, NULL),
+(111, '111.jpg', 85, NULL),
+(114, '114.jpg', 87, NULL),
+(115, '115.jpg', 87, NULL),
+(116, '116.jpg', 88, NULL),
+(117, '117.jpg', 88, NULL),
+(118, '118.jpg', 89, NULL),
+(119, '119.jpg', 89, NULL),
+(120, '120.jpg', 90, NULL),
+(121, '121.jpg', 91, NULL),
+(127, '127.jpg', 96, NULL),
+(129, '129.jpg', 98, NULL),
+(130, '130.jpg', 98, NULL),
+(131, '131.jpg', 100, NULL),
+(138, '138.jpg', 8, NULL),
+(139, '139.jpg', 8, NULL),
+(140, '140.jpg', 9, NULL),
+(141, '141.jpg', 9, NULL),
+(142, '142.jpg', 10, NULL),
+(143, '143.jpg', 10, NULL),
+(144, '144.jpg', 10, NULL),
+(145, '145.jpg', 11, NULL),
+(146, '146.jpg', 12, NULL),
+(147, '147.jpg', 12, NULL),
+(182, 'product-photo-18-1748421663-0.jpg', 18, 34),
+(183, 'product-photo-18-1748421663-1.jpg', 18, 34),
+(184, 'product-photo-18-1748422059-0.jpg', 18, 35),
+(185, 'product-photo-18-1748422059-1.jpg', 18, 35);
 
 -- --------------------------------------------------------
 
@@ -1014,14 +1006,19 @@ INSERT INTO `tbl_product_size` (`id`, `size_id`, `p_id`) VALUES
 (448, 3, 10),
 (449, 4, 10),
 (450, 5, 10),
-(451, 96, 11),
 (452, 2, 7),
-(453, 3, 12),
-(454, 4, 12),
-(455, 5, 12),
-(456, 6, 12),
 (457, 3, 9),
-(458, 4, 9);
+(458, 4, 9),
+(464, 3, 12),
+(465, 4, 12),
+(466, 5, 12),
+(467, 6, 12),
+(468, 7, 12),
+(469, 96, 11),
+(529, 2, 18),
+(530, 3, 18),
+(531, 4, 18),
+(532, 5, 18);
 
 -- --------------------------------------------------------
 
@@ -1185,7 +1182,7 @@ CREATE TABLE `tbl_shipping_cost_all` (
 --
 
 INSERT INTO `tbl_shipping_cost_all` (`sca_id`, `amount`) VALUES
-(1, '100');
+(1, '10');
 
 -- --------------------------------------------------------
 
@@ -1275,7 +1272,8 @@ CREATE TABLE `tbl_slider` (
 --
 
 INSERT INTO `tbl_slider` (`id`, `photo`, `heading`, `content`, `button_text`, `button_url`, `position`) VALUES
-(1, 'slider-1.jpg', '', 'L\'avancée', 'En savoir plus', 'about.php', 'Right');
+(1, 'slider-1.jpg', '', 'L\'avancée', 'En savoir plus', 'about.php', 'Right'),
+(3, 'slider-3.jpg', 'fff', '', '', '', 'Center');
 
 -- --------------------------------------------------------
 
@@ -1387,7 +1385,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `full_name`, `email`, `phone`, `password`, `photo`, `role`, `status`) VALUES
-(1, 'Administrator', 'admin@mail.com', '0556502057', 'ba97dc2f7eb2f4014a250fee92718a73', 'user-1.png', 'Super Admin', 'Active'),
+(1, 'Administrator', 'admin@mail.com', '0556502057', 'ba97dc2f7eb2f4014a250fee92718a73', 'user-1.jpg', 'Super Admin', 'Active'),
 (5, 'admin2', 'admin2@mail.com', '', '712de6fedcf8002b6a2185b0deef969c', '', 'Admin', 'Active'),
 (6, 'admin3', 'admin3@mail.com', '', 'f18d728469ef4f76ea324e7886b9a1ca', '', 'Admin', 'Active'),
 (7, 'admin4', 'admin4@mail.com', '', '0f16f83f885e58ed957bcf365913e17d', '', 'Admin', 'Active'),
@@ -1436,12 +1434,6 @@ ALTER TABLE `tbl_country`
 --
 ALTER TABLE `tbl_customer`
   ADD PRIMARY KEY (`cust_id`);
-
---
--- Indexes for table `tbl_end_category`
---
-ALTER TABLE `tbl_end_category`
-  ADD PRIMARY KEY (`ecat_id`);
 
 --
 -- Indexes for table `tbl_mid_category`
@@ -1535,7 +1527,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_color`
 --
 ALTER TABLE `tbl_color`
-  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_country`
@@ -1550,16 +1542,10 @@ ALTER TABLE `tbl_customer`
   MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `tbl_end_category`
---
-ALTER TABLE `tbl_end_category`
-  MODIFY `ecat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
-
---
 -- AUTO_INCREMENT for table `tbl_mid_category`
 --
 ALTER TABLE `tbl_mid_category`
-  MODIFY `mcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `mcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
@@ -1583,25 +1569,25 @@ ALTER TABLE `tbl_photo`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tbl_product_color`
 --
 ALTER TABLE `tbl_product_color`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=298;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=321;
 
 --
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
 ALTER TABLE `tbl_product_photo`
-  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
 
 --
 -- AUTO_INCREMENT for table `tbl_product_size`
 --
 ALTER TABLE `tbl_product_size`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=459;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=533;
 
 --
 -- AUTO_INCREMENT for table `tbl_service`
@@ -1619,7 +1605,7 @@ ALTER TABLE `tbl_size`
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_subscriber`
